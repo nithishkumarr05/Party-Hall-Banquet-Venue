@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Gallery · Eventora &middot; Party Hall &amp; Banquet Venue</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>" />
+      <script src="tailwind.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            venue: {
+              primary: '#4A1D3D',
+              secondary: '#6B2E5A',
+              muted: '#9B7A8F',
+              border: '#F0E4EC',
+              accent: '#D4AF7A',
+              'accent-dark': '#B8945A',
+              'accent-light': '#F5E6D0',
+              blush: '#B8346B',
+              'blush-light': '#FCE8F0',
+              bg: '#FFFFFF',
+              'bg-soft': '#FDF8FA',
+            }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'ken-burns': 'kenBurns 20s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            kenBurns: { '0%': { transform: 'scale(1) translate(0,0)' }, '100%': { transform: 'scale(1.15) translate(-2%, -2%)' } },
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
+    p { font-weight: 400; }
+    p strong, p b { font-weight: 550 !important; }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    body {
+      background-color: #FFFFFF;
+      color: #2D1A28;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .dark body {
+      background-color: #120A10;
+      color: #F5EAF0;
+    }
+
+    body::-webkit-scrollbar { width: 8px; }
+    body::-webkit-scrollbar-track { background: #FDF8FA; border-radius: 10px; }
+    body::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #D4AF7A, #6B2E5A); border-radius: 10px; }
+    .dark body::-webkit-scrollbar-track { background: #2A1520; }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #D4AF7A 0%, #E8CDA0 100%);
+      color: #2D1A28;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-gold::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-gold:hover::before { left: 100%; }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -8px rgba(212,175,122,0.65);
+    }
+
+    .btn-outline-venue {
+      border: 1.5px solid #4A1D3D;
+      color: #4A1D3D;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-venue:hover {
+      background: #4A1D3D;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .dark .btn-outline-venue {
+      border-color: #F5E6D0;
+      color: #F5E6D0;
+    }
+    .dark .btn-outline-venue:hover {
+      background: #F5E6D0;
+      color: #2D1A28;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.25s;
+      padding: 0.4rem 0;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #2D1A28;
+    }
+    .dark .nav-link { color: #F5EAF0; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #D4AF7A, #B8346B);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      border-radius: 2px;
+    }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-link.active, .nav-link:hover { color: #D4AF7A !important; }
+
+    .dropdown-wrapper { position: relative; }
+    .dropdown-wrapper::before {
+      content: ''; position: absolute;
+      left: 0; right: 0; height: 20px;
+      bottom: 100%; z-index: 100; background: transparent;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background-color: #FFFFFF;
+      border: 1px solid #F0E4EC;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px -12px rgba(74,29,61,0.2);
+      min-width: 220px;
+      z-index: 1000;
+      opacity: 0; visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      padding: 0.5rem 0;
+    }
+    .dark .dropdown-menu { background-color: #201018; border-color: #4A2540; }
+    .dropdown-wrapper:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); display: block; }
+    .dropdown-menu a {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1.25rem;
+      color: #2D1A28; text-decoration: none; font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+    .dark .dropdown-menu a { color: #F5EAF0; }
+    .dropdown-menu a i { color: #D4AF7A; width: 16px; text-align: center; font-size: 0.8rem; }
+    .dropdown-menu a:hover { background-color: #FDF8FA; color: #D4AF7A; padding-left: 1.75rem; }
+    .dark .dropdown-menu a:hover { background-color: #2D1A28; }
+
+    .icon-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #FDF8FA; color: #4A1D3D;
+      border: 1px solid #F0E4EC; transition: all 0.25s ease; cursor: pointer;
+    }
+    .dark .icon-btn { background: #201018; color: #F5EAF0; border-color: #4A2540; }
+    .icon-btn:hover {
+      background: linear-gradient(135deg, #D4AF7A, #B8346B);
+      color: #FFFFFF; border-color: transparent;
+      transform: rotate(12deg) scale(1.05);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO — MAGAZINE COLLAGE DESIGN
+    ═══════════════════════════════════════════════════════ */
+    .hero-gallery {
+      background: linear-gradient(135deg, #2D1A28 0%, #4A1D3D 45%, #6B2E5A 100%);
+      position: relative;
+    }
+    .hero-gallery::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(212,175,122,0.20) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(184,52,107,0.20) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* Big vertical title */
+    .vertical-title {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MASONRY GRID
+    ═══════════════════════════════════════════════════════ */
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .masonry-grid { column-count: 2; column-gap: 1.25rem; }
+    }
+    @media (min-width: 1024px) {
+      .masonry-grid { column-count: 3; column-gap: 1.5rem; }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+    .masonry-item:hover { transform: translateY(-4px); }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .masonry-item:hover img { transform: scale(1.06); }
+    .masonry-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(45,26,40,0.85) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .masonry-item:hover .masonry-overlay { opacity: 1; }
+
+    /* ═══════════════════════════════════════════════════════
+       POLAROID STYLE CARDS (Birthday section)
+    ═══════════════════════════════════════════════════════ */
+    .polaroid {
+      background: #FFFFFF;
+      padding: 1rem 1rem 3.5rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 20px 40px -15px rgba(45,26,40,0.35), 0 0 0 1px rgba(240,228,236,0.8);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .dark .polaroid {
+      background: #2A1520;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6), 0 0 0 1px rgba(74,37,64,0.8);
+    }
+    .polaroid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 0.25rem;
+      display: block;
+    }
+    .polaroid-caption {
+      position: absolute;
+      bottom: 1rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #4A1D3D;
+    }
+    .dark .polaroid-caption { color: #F5E6D0; }
+    .polaroid-tape {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 80px;
+      height: 22px;
+      background: rgba(212,175,122,0.7);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      border-radius: 2px;
+    }
+    .polaroid:nth-child(1) { transform: rotate(-3deg); }
+    .polaroid:nth-child(2) { transform: rotate(2deg); }
+    .polaroid:nth-child(3) { transform: rotate(-2deg); }
+    .polaroid:nth-child(4) { transform: rotate(3deg); }
+    .polaroid:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+
+    /* ═══════════════════════════════════════════════════════
+       DECORATION GALLERY — HEXAGON / CIRCLE GRID
+    ═══════════════════════════════════════════════════════ */
+    .decor-tile {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .decor-tile img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .decor-tile:hover img { transform: scale(1.12); }
+    .decor-tile::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid transparent;
+      border-radius: inherit;
+      transition: border-color 0.4s ease;
+    }
+    .decor-tile:hover::after { border-color: #D4AF7A; }
+    .decor-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      text-align: center;
+      background: linear-gradient(to top, rgba(45,26,40,0.9) 0%, transparent 100%);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+    .decor-tile:hover .decor-label { opacity: 1; transform: translateY(0); }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .section-pad { padding-top: 4rem; padding-bottom: 4rem; }
+    @media (min-width: 768px) {
+      .section-pad { padding-top: 6rem; padding-bottom: 6rem; }
+    }
+
+    [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+    [dir="rtl"] .nav-link::after { left: auto; right: 0; }
+    [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+
+    .mobile-drawer {
+      transform: translateX(-100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-drawer.open { transform: translateX(0); }
+    [dir="rtl"] .mobile-drawer { transform: translateX(100%); }
+    [dir="rtl"] .mobile-drawer.open { transform: translateX(0); }
+
+    .logo-word   { color: #C5A55A !important; }
+    .logo-accent { color: #C5A55A !important; }
+    .dark .logo-word   { color: #C5A55A !important; }
+    .dark .logo-accent { color: #C5A55A !important; }
+
+    .footer-white {
+      background-color: #FFFFFF;
+      border-top: 1px solid #F0E4EC;
+    }
+    .dark .footer-white {
+      background-color: #120A10;
+      border-top-color: #4A2540;
+    }
+    .footer-white .footer-heading { color: #4A1D3D; }
+    .dark .footer-white .footer-heading { color: #F5E6D0; }
+    .footer-white .footer-text { color: #6B4A5E; }
+    .dark .footer-white .footer-text { color: #C9A0B8; }
+    .footer-white .footer-link {
+      color: #6B4A5E;
+      transition: color 0.25s, padding-left 0.25s;
+    }
+    .dark .footer-white .footer-link { color: #C9A0B8; }
+    .footer-white .footer-link:hover { color: #D4AF7A; padding-left: 4px; }
+    .footer-white .footer-divider { border-color: #F0E4EC; }
+    .dark .footer-white .footer-divider { border-color: #4A2540; }
+    .footer-white .footer-social {
+      background: #FDF8FA;
+      border: 1px solid #F0E4EC;
+      color: #4A1D3D;
+    }
+    .dark .footer-white .footer-social {
+      background: #201018;
+      border-color: #4A2540;
+      color: #F5EAF0;
+    }
+    .footer-white .footer-social:hover {
+      background: linear-gradient(135deg, #D4AF7A, #B8346B);
+      color: #FFFFFF;
+      border-color: transparent;
+      transform: translateY(-3px) scale(1.05);
+    }
+    .footer-accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #D4AF7A, #B8346B, #6B2E5A, #D4AF7A);
+      background-size: 200% 100%;
+      animation: gradientShift 8s ease infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(20, 8, 16, 0.95);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 1rem;
+      box-shadow: 0 40px 100px -20px rgba(0,0,0,0.9);
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
+      background: rgba(212,175,122,0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212,175,122,0.4);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .lightbox-close:hover {
+      background: #D4AF7A;
+      color: #2D1A28;
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+
+<body class="antialiased bg-white dark:bg-[#120A10]">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#120A10]/95 backdrop-blur-md border-b border-[#F0E4EC] dark:border-[#4A2540] transition-colors">
+    <nav class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex items-center justify-between gap-3">
+
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center shadow-lg"
+               style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+            <i class="fas fa-glass-cheers text-white text-base sm:text-lg"></i>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-display text-xl sm:text-2xl font-bold tracking-tight">
+              <span class="logo-word">Event</span><span class="logo-accent">ora</span>
+            </span>
+            <span class="text-[9px] tracking-[0.28em] uppercase font-semibold text-[#9B7A8F] dark:text-[#C9A0B8]">
+              Party Hall &amp; Banquet
+            </span>
+          </div>
+        </a>
+
+        <div class="hidden xl:flex items-center justify-center flex-1 gap-5 mx-4">
+          <div class="dropdown-wrapper">
+            <button class="nav-link flex items-center font-semibold">
+              Home
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <a href="index.html"><i class="fas fa-home"></i> Home 1</a>
+              <a href="home2.html"><i class="fas fa-house-chimney"></i> Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="halls.html" class="nav-link">Halls</a>
+          <a href="packages.html" class="nav-link">Packages</a>
+          <a href="gallery.html" class="nav-link active">Gallery</a>
+
+          <div class="dropdown-wrapper">
+            <button class="nav-link flex items-center">
+              Dashboard
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a>
+              <a href="customer.html"><i class="fas fa-user"></i> Customer</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <button id="lang-icon" class="icon-btn hidden xl:inline-flex" title="Toggle RTL" aria-label="Toggle RTL">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+          </button>
+          <button id="theme-toggle" class="icon-btn hidden xl:inline-flex" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="w-4 h-4 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+          <a href="login.html" class="hidden xl:inline-flex px-5 py-2.5 rounded-full border-2 border-[#4A1D3D] dark:border-[#F5E6D0] text-[#4A1D3D] dark:text-[#F5E6D0] text-xs font-bold hover:bg-[#4A1D3D] hover:text-white dark:hover:bg-[#F5E6D0] dark:hover:text-[#2D1A28] transition">
+            Login
+          </a>
+          <a href="signup.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
+            <i class="fas fa-user-plus mr-1.5"></i> Sign Up
+          </a>
+          <button id="mobile-menu-open" class="xl:hidden icon-btn" aria-label="Open menu">
+            <i class="fas fa-bars text-base"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MOBILE DRAWER ================= -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-[110] pointer-events-none">
+    <div id="drawer-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+    <div id="drawer-content" class="mobile-drawer absolute top-0 left-0 h-full w-80 max-w-[85vw] bg-white dark:bg-[#1A0F18] shadow-2xl overflow-y-auto">
+      <div class="p-5">
+        <div class="flex justify-between items-center pb-4 border-b border-[#F0E4EC] dark:border-[#4A2540] mb-4">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+              <i class="fas fa-glass-cheers text-white text-sm"></i>
+            </div>
+            <span class="font-display text-lg font-bold"><span class="logo-word">Event</span><span class="logo-accent">ora</span></span>
+          </a>
+          <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
+            <i class="fas fa-times text-[#4A1D3D] dark:text-white"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-1">
+          <div>
+            <button class="w-full flex justify-between items-center py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition" id="mobile-home-toggle">
+              Home
+              <svg class="w-4 h-4 transform transition-transform duration-200" id="home-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobile-home-menu" class="hidden pl-3 flex flex-col space-y-1 mt-1">
+              <a href="index.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Home 1</a>
+              <a href="home2.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">About</a>
+          <a href="halls.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Halls</a>
+          <a href="packages.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Packages</a>
+          <a href="gallery.html" class="py-3 px-3 rounded-xl font-semibold text-[#D4AF7A] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">Gallery</a>
+
+          <div>
+            <button class="w-full flex justify-between items-center py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition" id="mobile-dashboard-toggle">
+              Dashboard
+              <svg class="w-4 h-4 transform transition-transform duration-200" id="dashboard-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobile-dashboard-menu" class="hidden pl-3 flex flex-col space-y-1 mt-1">
+              <a href="admin.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Admin</a>
+              <a href="customer.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Customer</a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540] flex flex-col gap-3">
+          <a href="login.html" class="w-full text-center border-2 border-[#F0E4EC] dark:border-[#4A2540] rounded-xl py-3 font-bold text-sm text-[#4A1D3D] dark:text-white hover:border-[#D4AF7A] hover:text-[#D4AF7A] transition">Login</a>
+          <a href="signup.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
+            <i class="fas fa-user-plus mr-2"></i> Sign Up
+          </a>
+        </div>
+
+        <div class="mt-5 flex justify-around items-center pt-5 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+          <button id="mobile-lang-toggle" class="flex flex-col items-center text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] p-2 transition">
+            <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+            <span class="text-[10px] uppercase tracking-wider">RTL</span>
+          </button>
+          <button id="mobile-theme-toggle" class="flex flex-col items-center text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] p-2 transition">
+            <svg class="w-5 h-5 mb-1 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="w-5 h-5 mb-1 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <span class="text-[10px] uppercase tracking-wider">Theme</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 1 · HERO — MAGAZINE COLLAGE (images removed)
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="hero-gallery relative min-h-[90vh] sm:min-h-[85vh] flex items-center overflow-hidden py-16 sm:py-0">
+
+    <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-3xl mx-auto text-center animate-slide-up">
+
+        <!-- Camera icon badge -->
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-[#D4AF7A]/40 px-4 py-2 rounded-full mb-6">
+          <i class="fas fa-camera text-[#D4AF7A] text-xs"></i>
+          <span class="text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase">Photo Gallery</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-bold">
+          Moments That <br>
+          <span class="italic text-[#F5E6D0]">Live Forever.</span>
+        </h1>
+
+        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+          A curated look at the celebrations we've hosted — weddings, birthdays, galas, and everything in between. Every photo tells a story.
+        </p>
+
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center gap-2 text-xs text-white/70 mb-10">
+          <a href="index.html" class="hover:text-[#D4AF7A] transition">Home</a>
+          <i class="fas fa-chevron-right text-[8px]"></i>
+          <span class="text-[#D4AF7A] font-semibold">Gallery</span>
+        </nav>
+
+        <!-- Category pills -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <a href="#wedding-events" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium hover:bg-[#D4AF7A] hover:text-[#2D1A28] hover:border-transparent transition">
+            <i class="fas fa-ring mr-1.5 text-[10px]"></i> Weddings
+          </a>
+          <a href="#birthday-celebrations" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium hover:bg-[#D4AF7A] hover:text-[#2D1A28] hover:border-transparent transition">
+            <i class="fas fa-cake-candles mr-1.5 text-[10px]"></i> Birthdays
+          </a>
+          <a href="#decoration-gallery" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium hover:bg-[#D4AF7A] hover:text-[#2D1A28] hover:border-transparent transition">
+            <i class="fas fa-leaf mr-1.5 text-[10px]"></i> Décor
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center text-white/60 animate-bounce">
+      <span class="text-[10px] uppercase tracking-widest mb-1">Scroll</span>
+      <i class="fas fa-chevron-down text-sm"></i>
+    </div>
+  </section>
+
+  <!-- Marquee Strip -->
+  <section class="bg-gradient-to-r from-[#D4AF7A] via-[#E8CDA0] to-[#B8346B] py-3.5 sm:py-4 overflow-hidden">
+    <div class="marquee-track">
+      <div class="flex items-center gap-6 sm:gap-12 px-6">
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Weddings</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Birthdays</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Décor</span>
+        <span class="text-white/60">◆</span>
+      </div>
+      <div class="flex items-center gap-6 sm:gap-12 px-6" aria-hidden="true">
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Weddings</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Birthdays</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Décor</span>
+        <span class="text-white/60">◆</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 2 · WEDDING EVENTS (masonry grid)
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="wedding-events" class="section-pad bg-white dark:bg-[#120A10] transition-colors relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-[#B8346B]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+        <div class="max-w-2xl">
+          <span class="text-[#B8346B] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Wedding Events</span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-3 font-bold">
+            Where Love Takes <span class="italic text-[#B8346B]">Center Stage</span>
+          </h2>
+          <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Real weddings, real moments — captured at Eventora.</p>
+        </div>
+        <span class="text-xs font-bold text-[#D4AF7A] tracking-widest uppercase">120+ Photos</span>
+      </div>
+
+      <!-- Masonry grid -->
+      <div class="masonry-grid">
+        <div class="masonry-item">
+          <img src="assets/g.jpg" alt="Wedding ceremony">
+        </div>
+
+        <div class="masonry-item">
+          <img src="assets/g1.jpg" alt="Wedding couple">
+        </div>
+
+        <div class="masonry-item">
+          <img src="assets/g9.jpg" alt="Reception table">
+        </div>
+
+        <div class="masonry-item">
+          <img src="assets/g3.jpg" alt="Ballroom">
+        </div>
+
+        <div class="masonry-item">
+          <img src="assets/g4.jpg" alt="First dance">
+        </div>
+
+        <div class="masonry-item">
+          <img src="assets/g5.jpg" alt="Wedding table setting">
+        </div>
+
+        <div class="masonry-item">
+          <img src="assets/g6.jpg" alt="Wedding rings">
+        </div>
+
+        <div class="masonry-item">
+          <img src="assets/g7.jpg" alt="Wedding cake">
+        </div>
+
+     
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 3 · BIRTHDAY CELEBRATIONS (polaroid style)
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="birthday-celebrations" class="section-pad bg-[#FDF8FA] dark:bg-[#1A0F18] transition-colors relative overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#D4AF7A]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Birthday Celebrations</span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+          Snapshots of <span class="italic text-[#D4AF7A]">Pure Joy</span>
+        </h2>
+        <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Polaroid-style memories from our most vibrant birthday parties.</p>
+      </div>
+
+      <!-- Polaroid grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 max-w-6xl mx-auto pt-6">
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80" alt="Sweet 16">
+          <p class="polaroid-caption">Sweet 16 · 2025</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <img src="assets/in1.jpg" alt="Confetti">
+          <p class="polaroid-caption">Confetti Hour · 2024</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <img src="assets/home2.jpg" alt="50th Birthday">
+          <p class="polaroid-caption">Golden 50th · 2025</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="polaroid-tape"></div>
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80" alt="Surprise party">
+          <p class="polaroid-caption">Surprise Reveal · 2026</p>
+        </div>
+      </div>
+
+      <!-- Sub-section strip -->
+      <div class="mt-14 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
+          <i class="fas fa-cake-candles text-[#D4AF7A] text-xl mb-2"></i>
+          <p class="text-[10px] uppercase tracking-widest text-[#7A4A6A] dark:text-[#C9A0B8]">Sweet 16s</p>
+        </div>
+        <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
+          <i class="fas fa-crown text-[#D4AF7A] text-xl mb-2"></i>
+          <p class="text-[10px] uppercase tracking-widest text-[#7A4A6A] dark:text-[#C9A0B8]">Milestone Parties</p>
+        </div>
+        <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
+          <i class="fas fa-hat-wizard text-[#D4AF7A] text-xl mb-2"></i>
+          <p class="text-[10px] uppercase tracking-widest text-[#7A4A6A] dark:text-[#C9A0B8]">Kids' Parties</p>
+        </div>
+        <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
+          <i class="fas fa-gift text-[#D4AF7A] text-xl mb-2"></i>
+          <p class="text-[10px] uppercase tracking-widest text-[#7A4A6A] dark:text-[#C9A0B8]">Surprise Parties</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 6 · DECORATION GALLERY (square tile grid)
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="decoration-gallery" class="section-pad bg-white dark:bg-[#120A10] transition-colors relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF7A]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Decoration Gallery</span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+          Details That Make <span class="italic text-[#D4AF7A]">The Difference</span>
+        </h2>
+        <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Florals, lighting, linens, and every exquisite finishing touch.</p>
+      </div>
+
+      <!-- Square tile grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-6xl mx-auto">
+
+        <div class="decor-tile">
+          <img src="assets/ga.jpg" alt="Floral arrangement">
+          <div class="decor-label">Floral Design</div>
+        </div>
+
+        <div class="decor-tile">
+          <img src="assets/ga1.jpg" alt="Table setting">
+          <div class="decor-label">Table Settings</div>
+        </div>
+
+        <div class="decor-tile">
+          <img src="assets/ga2.jpg" alt="Lighting">
+          <div class="decor-label">Lighting Design</div>
+        </div>
+
+        <div class="decor-tile">
+          <img src="assets/ga3.jpg" alt="Balloons">
+          <div class="decor-label">Balloon Art</div>
+        </div>
+
+        <div class="decor-tile">
+          <img src="assets/ga4.jpg" alt="Wedding details">
+          <div class="decor-label">Ceremony Decor</div>
+        </div>
+
+        <div class="decor-tile">
+          <img src="assets/ga5.jpg" alt="Fairy lights">
+          <div class="decor-label">Ambient Lights</div>
+        </div>
+
+        <div class="decor-tile">
+          <img src="assets/ga6.jpg" alt="Entrance decor">
+          <div class="decor-label">Entrance Arch</div>
+        </div>
+
+        <div class="decor-tile">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80" alt="Cake display">
+          <div class="decor-label">Cake Display</div>
+        </div>
+      </div>
+
+      <!-- Bottom CTA banner -->
+      <div class="mt-16 max-w-5xl mx-auto">
+        <div class="rounded-3xl p-8 sm:p-12 relative overflow-hidden"
+             style="background:linear-gradient(135deg,#2D1A28 0%,#6B2E5A 50%,#D4AF7A 100%);">
+          <div class="absolute top-0 right-0 w-72 h-72 bg-white/10 blur-[100px] rounded-full"></div>
+          <div class="absolute bottom-0 left-0 w-72 h-72 bg-[#B8346B]/20 blur-[100px] rounded-full"></div>
+          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="text-center lg:text-left">
+              <span class="text-[#F5E6D0] text-[10px] font-bold uppercase tracking-widest">Inspired by What You See?</span>
+              <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-bold mt-2 mb-3">
+                Let's Create Your Story
+              </h3>
+              <p class="text-white/85 text-sm sm:text-base max-w-lg">
+                Book a venue tour and let our team bring your vision to life — just like the moments in our gallery.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+              <a href="contact.html" class="btn-gold px-8 py-4 rounded-full font-bold text-sm text-center">
+                <i class="fas fa-calendar-check mr-2"></i> Book a Tour
+              </a>
+              <a href="halls.html" class="px-8 py-4 rounded-full border-2 border-white/60 text-white font-semibold text-sm hover:bg-white/10 hover:border-[#F5E6D0] transition text-center">
+                <i class="fas fa-door-open mr-2"></i> Browse Halls
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">
+      <i class="fas fa-times"></i>
+    </button>
+    <img id="lightbox-img" src="" alt="Gallery preview">
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-white relative overflow-hidden">
+    <div class="footer-accent-bar"></div>
+
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#D4AF7A]/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#B8346B]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-6 sm:pb-8">
+
+      <div class="mb-12 pb-10 border-b footer-divider">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-center md:text-left">
+            <h3 class="font-display text-2xl sm:text-3xl font-bold footer-heading mb-1">
+              Let's Plan Something <span class="italic text-[#D4AF7A]">Unforgettable</span>
+            </h3>
+            <p class="text-sm footer-text">Subscribe for seasonal offers, venue news, and event inspiration.</p>
+          </div>
+          <form class="flex w-full md:w-auto max-w-md gap-2" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Your email address" required
+                   class="flex-1 min-w-0 px-4 py-3 rounded-full border border-[#F0E4EC] dark:border-[#4A2540] bg-white dark:bg-[#201018] text-sm text-[#2D1A28] dark:text-white placeholder-[#9B7A8F] focus:outline-none focus:border-[#D4AF7A] transition" />
+            <button type="submit" class="btn-gold px-5 sm:px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap flex-shrink-0">
+              <i class="fas fa-paper-plane mr-1.5"></i> Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 pb-10 sm:pb-12 border-b footer-divider">
+
+        <div class="lg:col-span-2">
+          <a href="index.html" class="flex items-center gap-2.5 mb-5">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center shadow-md" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+              <i class="fas fa-glass-cheers text-white text-base"></i>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display text-xl font-bold tracking-tight"><span class="logo-word">Event</span><span class="logo-accent">ora</span></span>
+              <span class="text-[9px] tracking-[0.28em] uppercase font-semibold text-[#9B7A8F] dark:text-[#C9A0B8]">Party Hall &amp; Banquet</span>
+            </div>
+          </a>
+          <p class="text-sm footer-text leading-relaxed max-w-sm mb-6">
+            Elegant halls, curated catering, and a team dedicated to celebrating life's biggest moments since 2012.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-youtube text-sm"></i></a>
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-pinterest text-sm"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="halls.html" class="footer-link">Our Halls</a></li>
+            <li><a href="packages.html" class="footer-link">Packages</a></li>
+            <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#" class="footer-link">Weddings</a></li>
+            <li><a href="#" class="footer-link">Corporate</a></li>
+            <li><a href="#" class="footer-link">Birthdays</a></li>
+            <li><a href="#" class="footer-link">Galas</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3 footer-text">
+              <i class="fas fa-map-marker-alt mt-1 text-[#D4AF7A]"></i>
+              <span>1200 Grand Boulevard<br>City Center, ST 12345</span>
+            </li>
+            <li class="flex items-center gap-3 footer-text">
+              <i class="fas fa-phone text-[#D4AF7A]"></i>
+              <span>(555) 234-7890</span>
+            </li>
+            <li class="flex items-center gap-3 footer-text">
+              <i class="fas fa-envelope text-[#D4AF7A]"></i>
+              <span>bookings@eventora.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="py-6 sm:py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs footer-text">
+        <p>© 2026 Eventora — Party Hall &amp; Banquet. All rights reserved.</p>
+        <div class="flex gap-4 sm:gap-6">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="contact.html" class="footer-link">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    (function() {
+      const html = document.documentElement;
+
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        if (theme === 'dark') html.classList.add('dark');
+        else html.classList.remove('dark');
+        localStorage.setItem('theme', theme);
+        document.querySelectorAll('.light-icon').forEach(i => i.classList.toggle('hidden', theme === 'dark'));
+        document.querySelectorAll('.dark-icon').forEach(i => i.classList.toggle('hidden', theme === 'light'));
+      }
+      applyTheme(savedTheme);
+
+      [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')]
+        .filter(Boolean).forEach(btn => btn.addEventListener('click', () => {
+          applyTheme(html.classList.contains('dark') ? 'light' : 'dark');
+        }));
+
+      const savedLang = localStorage.getItem('language') || 'en';
+      if (savedLang === 'ar') html.setAttribute('dir', 'rtl');
+      const toggleRTL = () => {
+        const next = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+        html.setAttribute('dir', next);
+        localStorage.setItem('language', next === 'rtl' ? 'ar' : 'en');
+      };
+      document.getElementById('lang-icon')?.addEventListener('click', toggleRTL);
+      document.getElementById('mobile-lang-toggle')?.addEventListener('click', toggleRTL);
+
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const content = document.getElementById('drawer-content');
+      const backdrop = document.getElementById('drawer-backdrop');
+      const openMenu = () => {
+        drawer.classList.remove('pointer-events-none');
+        content.classList.add('open');
+        backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
+      };
+      const closeMenu = () => {
+        content.classList.remove('open');
+        backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          drawer.classList.add('pointer-events-none');
+          document.body.style.overflow = '';
+        }, 300);
+      };
+      document.getElementById('mobile-menu-open')?.addEventListener('click', openMenu);
+      document.getElementById('mobile-menu-close')?.addEventListener('click', closeMenu);
+      backdrop?.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+      const setupAccordion = (toggleId, menuId, iconId) => {
+        document.getElementById(toggleId)?.addEventListener('click', () => {
+          document.getElementById(menuId)?.classList.toggle('hidden');
+          document.getElementById(iconId)?.classList.toggle('rotate-180');
+        });
+      };
+      setupAccordion('mobile-home-toggle', 'mobile-home-menu', 'home-icon');
+      setupAccordion('mobile-dashboard-toggle', 'mobile-dashboard-menu', 'dashboard-icon');
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+
+      document.querySelectorAll('.masonry-item img, .decor-tile img, .polaroid img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src.replace(/w=\d+/, 'w=1600');
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      window.closeLightbox = function() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      };
+
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Sign In &middot; Eventora — Party Hall &amp; Banquet Venue</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>">
+    <meta name="description" content="Sign in to Eventora — manage your bookings, track event details, and access exclusive member-only venue perks.">
+
+    <!-- Tailwind + Fonts + Icons -->
+        <script src="tailwind.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        venue: {
+                            primary: '#4A1D3D',
+                            secondary: '#6B2E5A',
+                            muted: '#9B7A8F',
+                            border: '#F0E4EC',
+                            accent: '#D4AF7A',
+                            'accent-dark': '#B8945A',
+                            'accent-light': '#F5E6D0',
+                            blush: '#B8346B',
+                            'blush-light': '#FCE8F0',
+                            bg: '#FFFFFF',
+                            'bg-soft': '#FDF8FA',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'Georgia', 'serif'],
+                        body: ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #2D1A28;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .dark body {
+            background-color: #120A10;
+            color: #F5EAF0;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
+        p { font-weight: 400; }
+        p strong, p b { font-weight: 550 !important; }
+        .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: #FDF8FA; border-radius: 10px; }
+        body::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #D4AF7A, #6B2E5A); border-radius: 10px; }
+        .dark body::-webkit-scrollbar-track { background: #2A1520; }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .hide-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar-thumb {
+            background: #6B2E5A;
+            border-radius: 10px;
+        }
+        .hide-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #6B2E5A transparent;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+        .slow-zoom {
+            animation: slowZoom 28s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatPop {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        .float-pop {
+            animation: floatPop 6s ease-in-out infinite;
+        }
+
+        @keyframes breatheRing {
+            0%, 100% { transform: scale(1); opacity: 0.35; }
+            50% { transform: scale(1.12); opacity: 0.15; }
+        }
+        .breathe-ring {
+            animation: breatheRing 5s ease-in-out infinite;
+        }
+
+        @keyframes toastFade {
+            0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+        }
+        .toast-animation {
+            animation: toastFade 2.5s ease forwards;
+        }
+
+        [dir="rtl"] .rtl\:right-auto {
+            right: auto;
+        }
+        [dir="rtl"] .rtl\:left-0 {
+            left: 0;
+        }
+        [dir="rtl"] .rtl\:rotate-180 {
+            transform: rotate(180deg);
+        }
+        [dir="rtl"] .me-2 {
+            margin-left: 0.5rem;
+            margin-right: 0;
+        }
+        [dir="rtl"] .ms-2 {
+            margin-right: 0.5rem;
+            margin-left: 0;
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #FDF8FA inset !important;
+        }
+        .dark input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #120A10 inset !important;
+            -webkit-text-fill-color: #F5EAF0 !important;
+        }
+
+        .glass-card {
+            background: #FFFFFF;
+            border: 1px solid #F0E4EC;
+            box-shadow: 0 8px 20px rgba(74, 29, 61, 0.06);
+            transition: all 0.4s ease;
+        }
+        .dark .glass-card {
+            background: #201018;
+            border-color: #4A2540;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        /* ═══ index.html theme tokens ═══ */
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF7A 0%, #E8CDA0 100%);
+            color: #2D1A28;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -8px rgba(212,175,122,0.65);
+        }
+
+        .icon-btn {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #FDF8FA;
+            color: #4A1D3D;
+            border: 1px solid #F0E4EC;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .dark .icon-btn {
+            background: #201018;
+            color: #F5EAF0;
+            border-color: #4A2540;
+        }
+        .icon-btn:hover {
+            background: linear-gradient(135deg, #D4AF7A, #B8346B);
+            color: #FFFFFF;
+            border-color: transparent;
+            transform: rotate(12deg) scale(1.05);
+        }
+
+        .top-accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF7A, #B8346B, #6B2E5A, #D4AF7A);
+            background-size: 200% 100%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        .animated-border {
+            position: relative;
+            background: linear-gradient(60deg, #6B2E5A, #D4AF7A, #6B2E5A);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 400px) {
+            .glass-card .p-6, .glass-card .p-8, .glass-card>div:last-child {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            .glass-card {
+                border-radius: 1.5rem !important;
+            }
+            .glass-card .text-center.mb-6 {
+                margin-bottom: 0.5rem !important;
+            }
+            .glass-card .flex.justify-center.gap-3 {
+                margin-bottom: 0.5rem !important;
+            }
+            .glass-card form.space-y-5 {
+                gap: 0.75rem !important;
+            }
+            .glass-card .mt-7 {
+                margin-top: 0.5rem !important;
+            }
+        }
+
+        @media (max-height: 750px) and (max-width: 400px) {
+            .glass-card .text-center.mb-6 {
+                margin-bottom: 0.25rem !important;
+            }
+            .glass-card .text-2xl {
+                font-size: 1.25rem !important;
+            }
+            .social-login-btn {
+                height: 2.25rem !important;
+            }
+            .glass-card input {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            .glass-card button[type="submit"] {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+        .w-screen {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        [dir="rtl"] input,
+        [dir="rtl"] label,
+        [dir="rtl"] button,
+        [dir="rtl"] p,
+        [dir="rtl"] h2 {
+            text-align: right;
+        }
+        [dir="rtl"] .text-center {
+            text-align: center;
+        }
+        [dir="rtl"] .me-2 {
+            margin-left: 0.5rem;
+            margin-right: 0;
+        }
+        [dir="rtl"] .ms-2 {
+            margin-right: 0.5rem;
+            margin-left: 0;
+        }
+        .max-h-[95dvh] {
+            max-height: 95dvh;
+        }
+
+        button,
+        a,
+        [role="button"] {
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .dark .fa-sun {
+            display: none !important;
+        }
+        .dark .fa-moon {
+            display: inline-block !important;
+        }
+        .fa-moon {
+            display: none;
+        }
+        .fa-sun {
+            display: inline-block;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 0.65rem 1rem;
+            background: #FDF8FA;
+            border: 1px solid #F0E4EC;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: #2D1A28;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .dark .login-input {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(240, 228, 236, 0.15);
+            color: #F5EAF0;
+        }
+        .login-input:focus {
+            outline: none;
+            border-color: #6B2E5A;
+            box-shadow: 0 0 0 3px rgba(107, 46, 90, 0.18);
+        }
+        .login-input::placeholder {
+            color: #9B7A8F;
+        }
+        .dark .login-input::placeholder {
+            color: #7A5A70;
+        }
+
+        .social-login-btn {
+            flex: 1;
+            height: 40px;
+            background: #FDF8FA;
+            border-radius: 12px;
+            border: 1px solid #F0E4EC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .dark .social-login-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(240, 228, 236, 0.15);
+        }
+        .social-login-btn:hover {
+            background: rgba(107, 46, 90, 0.08);
+            border-color: #6B2E5A;
+        }
+        .dark .social-login-btn:hover {
+            background: rgba(240, 228, 236, 0.12);
+        }
+        .social-login-btn i {
+            font-size: 1.1rem;
+        }
+
+    </style>
+</head>
+
+<body class="bg-white dark:bg-[#120A10] min-h-[100dvh] w-screen overflow-y-auto flex items-center justify-center font-body antialiased transition-colors duration-300 relative px-3 py-6 sm:py-12">
+
+    <!-- Top accent bar — same token as index.html -->
+    <div class="top-accent-bar fixed inset-x-0 top-0 z-40"></div>
+
+    <!-- Top Controls (RTL / Theme) -->
+    <div class="absolute top-6 right-4 sm:top-8 sm:right-6 flex items-center gap-3 z-50 pointer-events-auto">
+        <button id="rtl-toggle-login" class="icon-btn" title="Toggle RTL">
+            <i class="fas fa-exchange-alt text-xs"></i>
+        </button>
+        <button id="theme-toggle-login" class="icon-btn" title="Toggle Theme">
+            <i class="fas fa-sun text-sm"></i>
+            <i class="fas fa-moon hidden text-sm"></i>
+        </button>
+    </div>
+
+    <!-- Main Card -->
+    <main class="w-full max-w-[950px] glass-card rounded-2xl sm:rounded-3xl flex flex-col md:flex-row rtl:flex-row-reverse border border-[#F0E4EC] dark:border-[#4A2540] relative z-10 overflow-hidden md:h-[520px]">
+
+        <!-- Left Panel: Login Form -->
+        <div class="w-full md:w-1/2 p-5 sm:p-6 lg:p-8 flex flex-col justify-center bg-white dark:bg-[#201018]">
+
+            <!-- Brand Logo & Welcome Header -->
+            <div class="text-center mb-4 flex flex-col items-center">
+                <a href="index.html" class="inline-flex items-center gap-2.5 mb-3 select-none group">
+                    <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-6 transition duration-300"
+                         style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+                        <i class="fas fa-glass-cheers text-white text-base"></i>
+                    </div>
+                    <div class="flex flex-col leading-none text-left">
+                        <span class="font-display text-2xl font-bold tracking-tight text-[#C5A55A]">
+                            Event<span class="text-[#C5A55A]">ora</span>
+                        </span>
+                        <span class="text-[9px] tracking-[0.28em] uppercase font-semibold text-[#9B7A8F] dark:text-[#C9A0B8]">
+                            Party Hall &amp; Banquet
+                        </span>
+                    </div>
+                </a>
+                <h2 class="text-xl sm:text-2xl font-display font-bold text-[#2D1A28] dark:text-[#F5EAF0] mb-0.5">Welcome Back</h2>
+                <p class="text-xs text-[#9B7A8F] dark:text-[#C9A0B8] font-light">Sign in to manage your event bookings.</p>
+            </div>
+
+            <!-- Social login row -->
+            <div class="flex justify-center md:justify-start gap-3 sm:gap-4 mb-4">
+                <button class="social-login-btn" title="Continue with Google">
+                    <i class="fab fa-google text-[#DB4437]"></i>
+                </button>
+                <button class="social-login-btn" title="Continue with Facebook">
+                    <i class="fab fa-facebook-f text-[#1877F2]"></i>
+                </button>
+                <button class="social-login-btn" title="Continue with Apple">
+                    <i class="fab fa-apple text-[#0F172A] dark:text-white"></i>
+                </button>
+            </div>
+
+            <div class="relative flex items-center justify-center my-3">
+                <div class="w-full border-t border-[#F0E4EC] dark:border-[#4A2540]"></div>
+                <div class="absolute bg-white dark:bg-[#201018] px-3 text-[9px] font-bold text-[#9B7A8F] dark:text-[#C9A0B8] tracking-widest uppercase">Or sign in with email</div>
+            </div>
+
+            <form class="space-y-3" id="loginForm">
+                <div class="text-left">
+                    <label class="block text-[11px] font-bold text-[#4A1D3D] dark:text-[#F5EAF0] uppercase tracking-wide mb-1">
+                        <i class="fas fa-envelope me-1.5 text-[#6B2E5A]"></i> Email Address
+                    </label>
+                    <input type="email" id="loginEmail" placeholder="hello@eventora.com" class="login-input" required>
+                </div>
+
+                <div class="text-left">
+                    <label class="block text-[11px] font-bold text-[#4A1D3D] dark:text-[#F5EAF0] uppercase tracking-wide mb-1">
+                        <i class="fas fa-lock me-1.5 text-[#6B2E5A]"></i> Password
+                    </label>
+                    <div class="relative">
+                        <input type="password" id="loginPassword" placeholder="••••••••" class="login-input" required>
+                        <button type="button" id="togglePasswordBtn" class="absolute inset-y-0 right-0 pe-3 flex items-center text-[#9B7A8F] dark:text-[#C9A0B8] hover:text-[#6B2E5A] transition-colors focus:outline-none ltr:right-0 rtl:left-0 rtl:right-auto rtl:ps-3 rtl:pe-0">
+                            <i class="fas fa-eye-slash text-xs" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-0.5 flex-wrap gap-2">
+                    <label class="flex items-center cursor-pointer group">
+                        <input type="checkbox" id="rememberCheckbox" class="w-3.5 h-3.5 rounded border-[#F0E4EC] text-[#6B2E5A] focus:ring-[#6B2E5A] cursor-pointer bg-transparent">
+                        <span class="ms-2 text-xs font-medium text-[#9B7A8F] dark:text-[#C9A0B8] group-hover:text-[#4A1D3D] dark:group-hover:text-white transition-colors">Remember me</span>
+                    </label>
+                    <a href="#" id="forgotPasswordLink" class="text-xs font-bold text-[#4A1D3D] dark:text-[#F5EAF0] uppercase tracking-wide hover:text-[#D4AF7A] dark:hover:text-[#F5E6D0] transition-colors">Forgot Password</a>
+                </div>
+
+                <button type="submit" class="btn-gold w-full mt-2 h-10 text-xs rounded-full flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-[#D4AF7A] active:scale-[0.98]">
+                    <i class="fas fa-glass-cheers text-xs transform group-hover:scale-110 transition-transform"></i>
+                    Sign In
+                </button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <p class="text-[12px] font-medium text-[#9B7A8F] dark:text-[#C9A0B8]">New to Eventora?
+                    <a href="signup.html" class="font-bold text-[#D4AF7A] hover:text-[#B8945A] transition-colors border-b border-transparent hover:border-[#B8945A] pb-0.5 ml-1">Create an account →</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Panel: Venue Atmosphere -->
+        <div class="hidden md:flex w-full md:w-1/2 relative text-white flex-col items-center justify-center overflow-hidden rounded-r-2xl rtl:rounded-r-none rtl:rounded-l-2xl border-l border-[#F0E4EC] dark:border-[#4A2540]">
+            <img src="assets/in.jpg" alt="Eventora Grand Ballroom" class="absolute inset-0 w-full h-full object-cover slow-zoom">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#2D1A28]/60 via-transparent to-[#2D1A28]/85"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-1 bg-[#D4AF7A]/80 rtl:right-auto rtl:left-0"></div>
+        </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none w-auto max-w-[90vw]"></div>
+
+    <script>
+        (function() {
+            // Toast function
+            function showToast(message, type = 'success') {
+                const container = document.getElementById('toastContainer');
+                if (!container) return;
+                const toast = document.createElement('div');
+                let bgColor = 'bg-[#6B2E5A]';
+                let icon = '<i class="fas fa-check-circle text-white text-sm"></i>';
+                if (type === 'error') { bgColor = 'bg-red-500'; icon = '<i class="fas fa-times-circle text-white text-sm"></i>'; }
+                else if (type === 'warning') { bgColor = 'bg-amber-500'; icon = '<i class="fas fa-exclamation-triangle text-white text-sm"></i>'; }
+                else if (type === 'info') { bgColor = 'bg-[#4A1D3D]'; icon = '<i class="fas fa-info-circle text-white text-sm"></i>'; }
+                toast.className = `toast-animation mb-2 px-5 py-3 rounded-xl shadow-lg text-xs sm:text-sm font-medium flex items-center gap-2 pointer-events-auto text-white max-w-full`;
+                toast.style.backgroundColor = '';
+                if (type === 'success') toast.style.backgroundColor = '#6B2E5A';
+                else if (type === 'error') toast.style.backgroundColor = '#EF4444';
+                else if (type === 'warning') toast.style.backgroundColor = '#F59E0B';
+                else toast.style.backgroundColor = '#4A1D3D';
+                toast.innerHTML = `${icon} <span class="break-words">${message}</span>`;
+                container.appendChild(toast);
+                setTimeout(() => { if (toast && toast.remove) toast.remove(); }, 2600);
+            }
+
+            // Password toggle
+            const toggleBtn = document.getElementById('togglePasswordBtn');
+            const passwordInput = document.getElementById('loginPassword');
+            const toggleIcon = document.getElementById('toggleIcon');
+            if (toggleBtn && passwordInput) {
+                toggleBtn.addEventListener('click', () => {
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        toggleIcon.classList.remove('fa-eye-slash');
+                        toggleIcon.classList.add('fa-eye');
+                    } else {
+                        passwordInput.type = 'password';
+                        toggleIcon.classList.remove('fa-eye');
+                        toggleIcon.classList.add('fa-eye-slash');
+                    }
+                });
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle-login');
+            const htmlTag = document.documentElement;
+
+            function updateThemeIcons() {
+                const isDark = htmlTag.classList.contains('dark');
+                const sunIcon = document.querySelector('#theme-toggle-login .fa-sun');
+                const moonIcon = document.querySelector('#theme-toggle-login .fa-moon');
+                if (sunIcon && moonIcon) {
+                    if (isDark) {
+                        sunIcon.classList.add('hidden');
+                        moonIcon.classList.remove('hidden');
+                    } else {
+                        sunIcon.classList.remove('hidden');
+                        moonIcon.classList.add('hidden');
+                    }
+                }
+            }
+
+            function toggleTheme() {
+                if (htmlTag.classList.contains('dark')) {
+                    htmlTag.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlTag.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+                updateThemeIcons();
+            }
+            if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+
+            // Initialize theme
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('prefers-color-scheme: dark').matches)) {
+                htmlTag.classList.add('dark');
+            } else {
+                htmlTag.classList.remove('dark');
+            }
+            updateThemeIcons();
+
+            // RTL Toggle
+            const rtlToggle = document.getElementById('rtl-toggle-login');
+
+            function applyRTLStyles(isRtl) {
+                if (isRtl) {
+                    htmlTag.setAttribute('dir', 'rtl');
+                    localStorage.setItem('direction', 'rtl');
+                } else {
+                    htmlTag.removeAttribute('dir');
+                    localStorage.setItem('direction', 'ltr');
+                }
+            }
+
+            function toggleRTL() {
+                const currentDir = htmlTag.getAttribute('dir');
+                if (currentDir === 'rtl') {
+                    applyRTLStyles(false);
+                    showToast('LTR layout activated', 'info');
+                } else {
+                    applyRTLStyles(true);
+                    showToast('RTL layout activated', 'info');
+                }
+            }
+            if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+            if (localStorage.getItem('direction') === 'rtl') {
+                htmlTag.setAttribute('dir', 'rtl');
+            } else if (localStorage.getItem('direction') === 'ltr') {
+                htmlTag.removeAttribute('dir');
+            }
+
+            // Remember me logic
+            const savedEmail = localStorage.getItem('savedEmail');
+            const rememberCheckbox = document.getElementById('rememberCheckbox');
+            const emailInput = document.getElementById('loginEmail');
+            if (savedEmail && emailInput) {
+                emailInput.value = savedEmail;
+                if (rememberCheckbox) rememberCheckbox.checked = true;
+            }
+
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('loginEmail').value.trim();
+                    const password = document.getElementById('loginPassword').value;
+                    if (!email) { showToast('Please enter your email address', 'warning'); return; }
+                    if (!password) { showToast('Please enter your password', 'warning'); return; }
+                    if (!email.includes('@') || !email.includes('.')) { showToast('Please enter a valid email address', 'error'); return; }
+
+                    if (rememberCheckbox && rememberCheckbox.checked) {
+                        localStorage.setItem('savedEmail', email);
+                    } else {
+                        localStorage.removeItem('savedEmail');
+                    }
+                    const userName = email.split('@')[0];
+                    showToast(`✨ Welcome back, ${userName}! Let's plan something unforgettable.`, 'success');
+                    // Uncomment to redirect: setTimeout(() => { window.location.href = "customer.html"; }, 1200);
+                });
+            }
+
+            // Social login demo
+            document.querySelectorAll('.social-login-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    showToast('Social sign-in demo — integrate your auth provider', 'info');
+                });
+            });
+
+            // Forgot password demo
+            const forgotLink = document.getElementById('forgotPasswordLink');
+            if (forgotLink) {
+                forgotLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showToast('Password reset link will be sent to your email', 'info');
+                });
+            }
+
+            // Fix for keyboard open on mobile
+            const mainCard = document.querySelector('main');
+            if (mainCard) {
+                const inputs = mainCard.querySelectorAll('input');
+                inputs.forEach(inp => {
+                    inp.addEventListener('focus', () => {
+                        setTimeout(() => {
+                            if (mainCard) {
+                                mainCard.scrollTo({ top: mainCard.scrollHeight, behavior: 'smooth' });
+                            }
+                        }, 200);
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

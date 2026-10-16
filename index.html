@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Eventora · Party Hall &amp; Banquet Venue</title>
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>" />
+  <!-- Tailwind CSS -->
+      <script src="tailwind.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            venue: {
+              primary: '#4A1D3D',
+              secondary: '#6B2E5A',
+              muted: '#9B7A8F',
+              border: '#F0E4EC',
+              accent: '#D4AF7A',
+              'accent-dark': '#B8945A',
+              'accent-light': '#F5E6D0',
+              blush: '#B8346B',
+              'blush-light': '#FCE8F0',
+              bg: '#FFFFFF',
+              'bg-soft': '#FDF8FA',
+            }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+          },
+          keyframes: {
+            floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+            slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
+    p { font-weight: 400; }
+    p strong, p b { font-weight: 550 !important; }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    body {
+      background-color: #FFFFFF;
+      color: #2D1A28;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .dark body {
+      background-color: #120A10;
+      color: #F5EAF0;
+    }
+
+    body::-webkit-scrollbar { width: 8px; }
+    body::-webkit-scrollbar-track { background: #FDF8FA; border-radius: 10px; }
+    body::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #D4AF7A, #6B2E5A); border-radius: 10px; }
+    .dark body::-webkit-scrollbar-track { background: #2A1520; }
+
+    .card-venue {
+      background: #FFFFFF;
+      border-radius: 1.5rem;
+      transition: all 0.4s ease;
+      border: 1px solid #F0E4EC;
+      box-shadow: 0 8px 20px rgba(74,29,61,0.06);
+    }
+    .dark .card-venue {
+      background: #201018;
+      border-color: #4A2540;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+    }
+    .card-venue:hover {
+      transform: translateY(-6px);
+      border-color: #D4AF7A;
+      box-shadow: 0 25px 50px -20px rgba(212,175,122,0.4);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #D4AF7A 0%, #E8CDA0 100%);
+      color: #2D1A28;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-gold::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-gold:hover::before { left: 100%; }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -8px rgba(212,175,122,0.65);
+    }
+
+    .btn-outline-venue {
+      border: 1.5px solid #4A1D3D;
+      color: #4A1D3D;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-venue:hover {
+      background: #4A1D3D;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .dark .btn-outline-venue {
+      border-color: #F5E6D0;
+      color: #F5E6D0;
+    }
+    .dark .btn-outline-venue:hover {
+      background: #F5E6D0;
+      color: #2D1A28;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.25s;
+      padding: 0.4rem 0;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #2D1A28;
+    }
+    .dark .nav-link { color: #F5EAF0; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #D4AF7A, #B8346B);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      border-radius: 2px;
+    }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-link.active, .nav-link:hover { color: #D4AF7A !important; }
+
+    .dropdown-wrapper { position: relative; }
+    .dropdown-wrapper::before {
+      content: ''; position: absolute;
+      left: 0; right: 0; height: 20px;
+      bottom: 100%; z-index: 100; background: transparent;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background-color: #FFFFFF;
+      border: 1px solid #F0E4EC;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px -12px rgba(74,29,61,0.2);
+      min-width: 220px;
+      z-index: 1000;
+      opacity: 0; visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      padding: 0.5rem 0;
+    }
+    .dark .dropdown-menu {
+      background-color: #201018;
+      border-color: #4A2540;
+    }
+    .dropdown-wrapper:hover .dropdown-menu {
+      opacity: 1; visibility: visible;
+      transform: translateY(0); display: block;
+    }
+    .dropdown-menu a {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1.25rem;
+      color: #2D1A28;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+    .dark .dropdown-menu a { color: #F5EAF0; }
+    .dropdown-menu a i {
+      color: #D4AF7A;
+      width: 16px; text-align: center; font-size: 0.8rem;
+    }
+    .dropdown-menu a:hover {
+      background-color: #FDF8FA;
+      color: #D4AF7A;
+      padding-left: 1.75rem;
+    }
+    .dark .dropdown-menu a:hover { background-color: #2D1A28; }
+
+    .icon-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #FDF8FA;
+      color: #4A1D3D;
+      border: 1px solid #F0E4EC;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .dark .icon-btn {
+      background: #201018;
+      color: #F5EAF0;
+      border-color: #4A2540;
+    }
+    .icon-btn:hover {
+      background: linear-gradient(135deg, #D4AF7A, #B8346B);
+      color: #FFFFFF;
+      border-color: transparent;
+      transform: rotate(12deg) scale(1.05);
+    }
+
+    .hero-venue {
+      background-image:
+        linear-gradient(135deg, rgba(45,26,40,0.88) 0%, rgba(74,29,61,0.70) 45%, rgba(212,175,122,0.55) 100%),
+        url('');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    @media (max-width: 768px) {
+      .hero-venue { background-attachment: scroll; }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .section-pad { padding-top: 4rem; padding-bottom: 4rem; }
+    @media (min-width: 768px) {
+      .section-pad { padding-top: 6rem; padding-bottom: 6rem; }
+    }
+
+    [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+    [dir="rtl"] .nav-link::after { left: auto; right: 0; }
+    [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+
+    .mobile-drawer {
+      transform: translateX(-100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-drawer.open { transform: translateX(0); }
+    [dir="rtl"] .mobile-drawer { transform: translateX(100%); }
+    [dir="rtl"] .mobile-drawer.open { transform: translateX(0); }
+
+    /* ═══════════════════════════════════════════════════════════
+       LOGO — SAME COLOR EVERYWHERE (header light, dark & footer)
+       "Event" = Champagne Gold  |  "ora" = Deep Wine
+       ═══════════════════════════════════════════════════════════ */
+    .logo-word   { color: #C5A55A !important; }   /* Warm Gold  */
+    .logo-accent { color: #C5A55A !important; }   /* Warm Gold   */
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER — WHITE BACKGROUND, MATCHING HEADER
+       ═══════════════════════════════════════════════════════════ */
+    .footer-white {
+      background-color: #FFFFFF;
+      border-top: 1px solid #F0E4EC;
+    }
+    .dark .footer-white {
+      background-color: #120A10;
+      border-top-color: #4A2540;
+    }
+
+    .footer-white .footer-heading {
+      color: #4A1D3D;
+    }
+    .dark .footer-white .footer-heading {
+      color: #F5E6D0;
+    }
+
+    .footer-white .footer-text {
+      color: #6B4A5E;
+    }
+    .dark .footer-white .footer-text {
+      color: #C9A0B8;
+    }
+
+    .footer-white .footer-link {
+      color: #6B4A5E;
+      transition: color 0.25s, padding-left 0.25s;
+    }
+    .dark .footer-white .footer-link {
+      color: #C9A0B8;
+    }
+    .footer-white .footer-link:hover {
+      color: #D4AF7A;
+      padding-left: 4px;
+    }
+
+    .footer-white .footer-divider {
+      border-color: #F0E4EC;
+    }
+    .dark .footer-white .footer-divider {
+      border-color: #4A2540;
+    }
+
+    .footer-white .footer-social {
+      background: #FDF8FA;
+      border: 1px solid #F0E4EC;
+      color: #4A1D3D;
+    }
+    .dark .footer-white .footer-social {
+      background: #201018;
+      border-color: #4A2540;
+      color: #F5EAF0;
+    }
+    .footer-white .footer-social:hover {
+      background: linear-gradient(135deg, #D4AF7A, #B8346B);
+      color: #FFFFFF;
+      border-color: transparent;
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    /* Decorative top accent */
+    .footer-accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #D4AF7A, #B8346B, #6B2E5A, #D4AF7A);
+      background-size: 200% 100%;
+      animation: gradientShift 8s ease infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+  </style>
+</head>
+
+<body class="antialiased bg-white dark:bg-[#120A10]">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#120A10]/95 backdrop-blur-md border-b border-[#F0E4EC] dark:border-[#4A2540] transition-colors">
+    <nav class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex items-center justify-between gap-3">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center shadow-lg"
+               style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+            <i class="fas fa-glass-cheers text-white text-base sm:text-lg"></i>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-display text-xl sm:text-2xl font-bold tracking-tight">
+              <span class="logo-word">Event</span><span class="logo-accent">ora</span>
+            </span>
+            <span class="text-[9px] tracking-[0.28em] uppercase font-semibold text-[#9B7A8F] dark:text-[#C9A0B8]">
+              Party Hall &amp; Banquet
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden xl:flex items-center justify-center flex-1 gap-5 mx-4">
+          <div class="dropdown-wrapper">
+            <button class="nav-link active flex items-center font-semibold">
+              Home
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <a href="index.html"><i class="fas fa-home"></i> Home 1</a>
+              <a href="home2.html"><i class="fas fa-house-chimney"></i> Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="halls.html" class="nav-link">Halls</a>
+          <a href="packages.html" class="nav-link">Packages</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+
+          <div class="dropdown-wrapper">
+            <button class="nav-link flex items-center">
+              Dashboard
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="dropdown-menu">
+              <a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a>
+              <a href="customer.html"><i class="fas fa-user"></i> Customer</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <button id="lang-icon" class="icon-btn hidden xl:inline-flex" title="Toggle RTL" aria-label="Toggle RTL">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+          </button>
+          <button id="theme-toggle" class="icon-btn hidden xl:inline-flex" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="w-4 h-4 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="w-4 h-4 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+          <a href="login.html" class="hidden xl:inline-flex px-5 py-2.5 rounded-full border-2 border-[#4A1D3D] dark:border-[#F5E6D0] text-[#4A1D3D] dark:text-[#F5E6D0] text-xs font-bold hover:bg-[#4A1D3D] hover:text-white dark:hover:bg-[#F5E6D0] dark:hover:text-[#2D1A28] transition">
+            Login
+          </a>
+          <a href="signup.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
+            <i class="fas fa-user-plus mr-1.5"></i> Sign Up
+          </a>
+          <button id="mobile-menu-open" class="xl:hidden icon-btn" aria-label="Open menu">
+            <i class="fas fa-bars text-base"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= MOBILE DRAWER ================= -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-[110] pointer-events-none">
+    <div id="drawer-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+    <div id="drawer-content" class="mobile-drawer absolute top-0 left-0 h-full w-80 max-w-[85vw] bg-white dark:bg-[#1A0F18] shadow-2xl overflow-y-auto">
+      <div class="p-5">
+        <div class="flex justify-between items-center pb-4 border-b border-[#F0E4EC] dark:border-[#4A2540] mb-4">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+              <i class="fas fa-glass-cheers text-white text-sm"></i>
+            </div>
+            <span class="font-display text-lg font-bold"><span class="logo-word">Event</span><span class="logo-accent">ora</span></span>
+          </a>
+          <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
+            <i class="fas fa-times text-[#4A1D3D] dark:text-white"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-1">
+          <div>
+            <button class="w-full flex justify-between items-center py-3 px-3 rounded-xl font-semibold text-[#D4AF7A] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition" id="mobile-home-toggle">
+              Home
+              <svg class="w-4 h-4 transform transition-transform duration-200" id="home-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobile-home-menu" class="hidden pl-3 flex flex-col space-y-1 mt-1">
+              <a href="index.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Home 1</a>
+              <a href="home2.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">About</a>
+          <a href="halls.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Halls</a>
+          <a href="packages.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Packages</a>
+          <a href="gallery.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Gallery</a>
+
+          <div>
+            <button class="w-full flex justify-between items-center py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition" id="mobile-dashboard-toggle">
+              Dashboard
+              <svg class="w-4 h-4 transform transition-transform duration-200" id="dashboard-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="mobile-dashboard-menu" class="hidden pl-3 flex flex-col space-y-1 mt-1">
+              <a href="admin.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Admin</a>
+              <a href="customer.html" class="py-2 px-3 text-sm text-[#2D1A28] dark:text-[#F5EAF0] hover:text-[#D4AF7A] transition">Customer</a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540] flex flex-col gap-3">
+          <a href="login.html" class="w-full text-center border-2 border-[#F0E4EC] dark:border-[#4A2540] rounded-xl py-3 font-bold text-sm text-[#4A1D3D] dark:text-white hover:border-[#D4AF7A] hover:text-[#D4AF7A] transition">Login</a>
+          <a href="signup.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
+            <i class="fas fa-user-plus mr-2"></i> Sign Up
+          </a>
+        </div>
+
+        <div class="mt-5 flex justify-around items-center pt-5 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+          <button id="mobile-lang-toggle" class="flex flex-col items-center text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] p-2 transition">
+            <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+            <span class="text-[10px] uppercase tracking-wider">RTL</span>
+          </button>
+          <button id="mobile-theme-toggle" class="flex flex-col items-center text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] p-2 transition">
+            <svg class="w-5 h-5 mb-1 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="w-5 h-5 mb-1 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <span class="text-[10px] uppercase tracking-wider">Theme</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1 · HERO
+  ============================================================ -->
+  <section class="hero-venue relative min-h-[92vh] sm:min-h-[88vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-black/20 dark:bg-black/40"></div>
+
+    <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
+      <div class="max-w-4xl mx-auto text-center animate-slide-up">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-[#D4AF7A]/40 px-4 py-2 rounded-full mb-6">
+          <span class="w-2 h-2 rounded-full bg-[#D4AF7A] animate-pulse"></span>
+          <span class="text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase">Est. 2012 · 3,200+ Events Hosted</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-bold">
+          Your Perfect <br>
+          <span class="italic text-[#F5E6D0]">Celebration</span>
+          <br>
+          Starts Here.
+        </h1>
+
+        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+          From intimate birthdays to grand weddings — Eventora offers elegant halls, curated catering, and a dedicated team to make every moment unforgettable.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <a href="halls.html" class="btn-gold px-8 py-4 rounded-full text-sm sm:text-base font-bold text-center">
+            <i class="fas fa-door-open mr-2"></i> Explore Our Halls
+          </a>
+          <a href="contact.html" class="px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold text-sm sm:text-base hover:bg-white/10 hover:border-[#F5E6D0] transition text-center">
+            <i class="fas fa-calendar-check mr-2"></i> Book a Tour
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
+          <div>
+            <p class="font-display text-3xl sm:text-4xl text-white font-bold">3.2K<span class="text-[#D4AF7A]">+</span></p>
+            <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/70 mt-1">Events Hosted</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl sm:text-4xl text-white font-bold">8</p>
+            <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/70 mt-1">Elegant Halls</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl sm:text-4xl text-white font-bold">4.9<span class="text-[#D4AF7A]">★</span></p>
+            <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/70 mt-1">Client Rating</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center text-white/60 animate-bounce">
+      <span class="text-[10px] uppercase tracking-widest mb-1">Scroll</span>
+      <i class="fas fa-chevron-down text-sm"></i>
+    </div>
+  </section>
+
+  <!-- Marquee Strip -->
+  <section class="bg-gradient-to-r from-[#D4AF7A] via-[#E8CDA0] to-[#B8346B] py-3.5 sm:py-4 overflow-hidden">
+    <div class="marquee-track">
+      <div class="flex items-center gap-6 sm:gap-12 px-6">
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Weddings</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Birthdays</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Corporate Events</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Anniversaries</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Engagements</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Galas</span>
+        <span class="text-white/60">◆</span>
+      </div>
+      <div class="flex items-center gap-6 sm:gap-12 px-6" aria-hidden="true">
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Weddings</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Birthdays</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Corporate Events</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Anniversaries</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Engagements</span>
+        <span class="text-white/60">◆</span>
+        <span class="font-display italic text-sm sm:text-lg text-white tracking-wider">Galas</span>
+        <span class="text-white/60">◆</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 · OUR VENUE HIGHLIGHTS
+  ============================================================ -->
+  <section class="section-pad bg-white dark:bg-[#120A10] transition-colors">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Our Venue Highlights</span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+          Elegance In <span class="italic text-[#D4AF7A]">Every Detail</span>
+        </h2>
+        <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
+          Premium amenities, curated design, and a team that treats your event like their own.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div class="card-venue p-6 sm:p-8 text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 mx-auto flex-shrink-0"
+               style="background:linear-gradient(135deg,#4A1D3D,#6B2E5A);">
+            <i class="fas fa-crown text-[#D4AF7A] text-xl"></i>
+          </div>
+          <h3 class="w-full font-display text-lg sm:text-xl font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center justify-center">Grand Ballrooms</h3>
+          <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">Crystal chandeliers, marble floors, and soaring ceilings for a truly regal feel.</p>
+        </div>
+
+        <div class="card-venue p-6 sm:p-8 text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 mx-auto flex-shrink-0"
+               style="background:linear-gradient(135deg,#6B2E5A,#D4AF7A);">
+            <i class="fas fa-utensils text-white text-xl"></i>
+          </div>
+          <h3 class="w-full font-display text-lg sm:text-xl font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center justify-center">In-House Catering</h3>
+          <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">Award-winning chefs crafting bespoke menus from canapés to seven-course dinners.</p>
+        </div>
+
+        <div class="card-venue p-6 sm:p-8 text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 mx-auto flex-shrink-0"
+               style="background:linear-gradient(135deg,#D4AF7A,#4A1D3D);">
+            <i class="fas fa-music text-white text-xl"></i>
+          </div>
+          <h3 class="w-full font-display text-lg sm:text-xl font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center justify-center">Premium AV &amp; Lighting</h3>
+          <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">Full sound systems, DJ setups, and programmable event lighting included.</p>
+        </div>
+
+        <div class="card-venue p-6 sm:p-8 text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 mx-auto flex-shrink-0"
+               style="background:linear-gradient(135deg,#2D1A28,#4A1D3D);">
+            <i class="fas fa-car text-[#D4AF7A] text-xl"></i>
+          </div>
+          <h3 class="w-full font-display text-lg sm:text-xl font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center justify-center">Free Valet Parking</h3>
+          <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">Complimentary valet service for up to 250 vehicles, plus overflow parking nearby.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 · FEATURED HALLS
+  ============================================================ -->
+ <section class="section-pad bg-[#FDF8FA] dark:bg-[#1A0F18] transition-colors">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+        <div class="max-w-2xl">
+          <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Featured Halls</span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-3 font-bold">
+            Rooms Fit For <span class="italic text-[#D4AF7A]">Every Story</span>
+          </h2>
+          <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">From intimate gatherings to grand galas — pick the perfect space.</p>
+        </div>
+        <a href="halls.html" class="text-[#D4AF7A] font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all whitespace-nowrap">
+          View All Halls <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+
+        <!-- Hall 1 -->
+        <div class="card-venue overflow-hidden flex flex-col">
+          <div class="relative h-56 sm:h-64 overflow-hidden shrink-0">
+            <img src="assets/in.jpg" alt="Crystal Ballroom" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-[#D4AF7A] text-[#2D1A28] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Most Popular</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col flex-grow">
+            <p class="text-[10px] uppercase tracking-widest font-bold text-[#D4AF7A] mb-1">Grand Hall</p>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-[#2D1A28] dark:text-white mb-2">The Crystal Ballroom</h3>
+            <p class="text-xs sm:text-sm text-[#7A4A6A] dark:text-[#C9A0B8] mb-4 leading-relaxed flex-grow">Our flagship venue — 400 seats, marble dance floor, and a cascading crystal chandelier.</p>
+            <div class="flex items-center gap-4 text-xs text-[#7A4A6A] dark:text-[#C9A0B8] pb-4 mb-4 border-b border-[#F0E4EC] dark:border-[#4A2540]">
+              <span><i class="fas fa-users text-[#D4AF7A]"></i> 400 guests</span>
+              <span><i class="fas fa-ruler-combined text-[#D4AF7A]"></i> 5,800 sqft</span>
+            </div>
+            <div class="flex items-center justify-between mt-auto">
+              <p class="font-display text-lg font-bold text-[#D4AF7A] leading-none">From $2,400</p>
+              <a href="halls.html" class="text-xs font-bold text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] transition leading-none">View →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hall 2 -->
+        <div class="card-venue overflow-hidden flex flex-col">
+          <div class="relative h-56 sm:h-64 overflow-hidden shrink-0">
+            <img src="assets/in1.jpg" alt="Rose Garden Room" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-[#B8346B] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Romantic</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col flex-grow">
+            <p class="text-[10px] uppercase tracking-widest font-bold text-[#D4AF7A] mb-1">Garden Room</p>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-[#2D1A28] dark:text-white mb-2">The Rose Terrace</h3>
+            <p class="text-xs sm:text-sm text-[#7A4A6A] dark:text-[#C9A0B8] mb-4 leading-relaxed flex-grow">Semi-outdoor space with garden views, perfect for intimate weddings and showers.</p>
+            <div class="flex items-center gap-4 text-xs text-[#7A4A6A] dark:text-[#C9A0B8] pb-4 mb-4 border-b border-[#F0E4EC] dark:border-[#4A2540]">
+              <span><i class="fas fa-users text-[#D4AF7A]"></i> 120 guests</span>
+              <span><i class="fas fa-ruler-combined text-[#D4AF7A]"></i> 2,100 sqft</span>
+            </div>
+            <div class="flex items-center justify-between mt-auto">
+              <p class="font-display text-lg font-bold text-[#D4AF7A] leading-none">From $1,100</p>
+              <a href="halls.html" class="text-xs font-bold text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] transition leading-none">View →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hall 3 -->
+        <div class="card-venue overflow-hidden flex flex-col sm:col-span-2 lg:col-span-1">
+          <div class="relative h-56 sm:h-64 overflow-hidden shrink-0">
+            <img src="assets/in2.jpg" alt="Executive Boardroom" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-[#2D1A28] text-[#D4AF7A] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Corporate</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col flex-grow">
+            <p class="text-[10px] uppercase tracking-widest font-bold text-[#D4AF7A] mb-1">Boardroom</p>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-[#2D1A28] dark:text-white mb-2">The Executive Suite</h3>
+            <p class="text-xs sm:text-sm text-[#7A4A6A] dark:text-[#C9A0B8] mb-4 leading-relaxed flex-grow">Modern space for conferences, product launches, and corporate dinners.</p>
+            <div class="flex items-center gap-4 text-xs text-[#7A4A6A] dark:text-[#C9A0B8] pb-4 mb-4 border-b border-[#F0E4EC] dark:border-[#4A2540]">
+              <span><i class="fas fa-users text-[#D4AF7A]"></i> 80 guests</span>
+              <span><i class="fas fa-ruler-combined text-[#D4AF7A]"></i> 1,400 sqft</span>
+            </div>
+            <div class="flex items-center justify-between mt-auto">
+              <p class="font-display text-lg font-bold text-[#D4AF7A] leading-none">From $780</p>
+              <a href="halls.html" class="text-xs font-bold text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] transition leading-none">View →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 · EVENT TYPES
+  ============================================================ -->
+  <section class="section-pad bg-white dark:bg-[#120A10] transition-colors">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Event Types</span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+          Every Celebration, <span class="italic text-[#D4AF7A]">Perfected</span>
+        </h2>
+        <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Whatever you're celebrating, we've hosted it before — and we know how to make it shine.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-ring text-3xl mb-3" style="color:#B8346B;"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Weddings</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Ceremony + reception packages with bridal suite access.</p>
+        </div>
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-cake-candles text-3xl mb-3 text-[#D4AF7A]"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Birthdays</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Milestone parties from sweet 16s to 80th bashes.</p>
+        </div>
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-briefcase text-3xl mb-3 text-[#4A1D3D] dark:text-[#F5E6D0]"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Corporate</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Conferences, galas, holiday parties, and product launches.</p>
+        </div>
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-champagne-glasses text-3xl mb-3 text-[#D4AF7A]"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Anniversaries</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Golden, silver, and every milestone in between.</p>
+        </div>
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-heart text-3xl mb-3" style="color:#B8346B;"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Engagements</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Intimate proposal dinners and engagement soirées.</p>
+        </div>
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-graduation-cap text-3xl mb-3 text-[#D4AF7A]"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Graduations</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Celebrate academic milestones in style.</p>
+        </div>
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-hands-praying text-3xl mb-3 text-[#4A1D3D] dark:text-[#F5E6D0]"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Religious</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Christenings, communions, and cultural ceremonies.</p>
+        </div>
+        <div class="card-venue p-6 text-center">
+          <i class="fas fa-star text-3xl mb-3 text-[#D4AF7A]"></i>
+          <h3 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-2">Galas &amp; Fundraisers</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Charity dinners and award nights with AV support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 · OUR PACKAGES
+  ============================================================ -->
+  <section class="section-pad bg-[#FDF8FA] dark:bg-[#1A0F18] transition-colors">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Our Packages</span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+          All-Inclusive <span class="italic text-[#D4AF7A]">Celebrations</span>
+        </h2>
+        <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Transparent pricing, complete service, and no hidden fees.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+        <!-- Package 1 -->
+        <div class="card-venue p-6 sm:p-8 flex flex-col">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#2D1A28,#4A1D3D);">
+            <i class="fas fa-mug-hot text-[#D4AF7A] text-lg"></i>
+          </div>
+          <h3 class="font-display text-xl sm:text-2xl font-bold text-[#2D1A28] dark:text-white mb-1">Intimate</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-5">Perfect for showers &amp; small gatherings (up to 60 guests)</p>
+          <p class="font-display text-4xl text-[#D4AF7A] font-bold mb-5">$899<span class="text-sm font-normal text-[#6B4A5E] dark:text-[#B8A0B0]">/ event</span></p>
+          <ul class="space-y-3 text-sm mb-6 flex-grow">
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">3-hour hall rental</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Basic décor &amp; linens</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Buffet menu for 60</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Soft background music</span></li>
+          </ul>
+          <a href="packages.html" class="w-full text-center btn-outline-venue py-3 rounded-full font-bold text-sm">Learn More</a>
+        </div>
+
+        <!-- Package 2 (featured) -->
+        <div class="card-venue p-6 sm:p-8 flex flex-col relative border-2 border-[#D4AF7A] shadow-2xl transform md:-translate-y-4">
+          <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#D4AF7A] to-[#6B2E5A] text-white text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full whitespace-nowrap">Most Popular</span>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 mt-2" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+            <i class="fas fa-star text-white text-lg"></i>
+          </div>
+          <h3 class="font-display text-xl sm:text-2xl font-bold text-[#2D1A28] dark:text-white mb-1">Signature</h3>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-5">Ideal for weddings &amp; mid-size events (up to 200 guests)</p>
+          <p class="font-display text-4xl text-[#D4AF7A] font-bold mb-5">$2,499<span class="text-sm font-normal text-[#6B4A5E] dark:text-[#B8A0B0]">/ event</span></p>
+          <ul class="space-y-3 text-sm mb-6 flex-grow">
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">5-hour hall rental</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Full themed décor</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Plated dinner for 200</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">DJ + full AV package</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Bridal suite + valet</span></li>
+          </ul>
+          <a href="packages.html" class="w-full text-center btn-gold py-3 rounded-full font-bold text-sm">Book Signature</a>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="card-venue p-6 sm:p-8 flex flex-col">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style="background:linear-gradient(135deg,#2D1A28,#B8346B);">
+            <i class="fas fa-crown text-[#D4AF7A] text-lg"></i>
+          </div>
+          <h3 class="font-display text-xl sm:text-2xl font-bold text-[#2D1A28] dark:text-white mb-1">Imperial</h3>
+          <p class="text-xs text-[#6B4A5E] dark:text-[#B8A0B0] mb-5">Grand galas &amp; luxury weddings (up to 450 guests)</p>
+          <p class="font-display text-4xl text-[#D4AF7A] font-bold mb-5">$5,999<span class="text-sm font-normal text-[#6B4A5E] dark:text-[#B8A0B0]">/ event</span></p>
+          <ul class="space-y-3 text-sm mb-6 flex-grow">
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#6B4A5E] dark:text-[#B8A0B0]">Full-day hall access</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#6B4A5E] dark:text-[#B8A0B0]">Luxury floral &amp; design</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#6B4A5E] dark:text-[#B8A0B0]">Custom 7-course menu</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#6B4A5E] dark:text-[#B8A0B0]">Live band + DJ</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#6B4A5E] dark:text-[#B8A0B0]">Event coordinator included</span></li>
+          </ul>
+          <a href="packages.html" class="w-full text-center btn-outline-venue py-3 rounded-full font-bold text-sm">Learn More</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="packages.html" class="inline-flex items-center gap-2 border-2 border-[#F0E4EC] dark:border-[#4A2540] text-[#4A1D3D] dark:text-white font-semibold px-7 py-3.5 rounded-full hover:border-[#D4AF7A] hover:text-[#D4AF7A] transition text-sm">
+          <i class="fas fa-box-open"></i> Compare All Packages
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 · CUSTOMER REVIEWS
+  ============================================================ -->
+  <section class="section-pad bg-white dark:bg-[#120A10] transition-colors">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Customer Reviews</span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+          Memories Our <span class="italic text-[#D4AF7A]">Guests Cherish</span>
+        </h2>
+        <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Real feedback from real celebrations at Eventora.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="card-venue p-6 sm:p-8 flex flex-col">
+          <div class="flex gap-1 mb-4">
+            <i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i>
+          </div>
+          <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed italic mb-6 flex-grow">"Our wedding at the Crystal Ballroom was a dream. The décor, the food, the coordination — everything was flawless. Highly recommend!"</p>
+          <div class="flex items-center gap-3 pt-5 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+            <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+              <img src="assets/staff1.jpg" alt="Amara O." class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col justify-center">
+              <p class="font-bold text-sm text-[#2D1A28] dark:text-white leading-tight">Amara O.</p>
+              <p class="text-[10px] uppercase tracking-widest text-[#D4AF7A] mt-1">Wedding · May 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-venue p-6 sm:p-8 flex flex-col">
+          <div class="flex gap-1 mb-4">
+            <i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i>
+          </div>
+          <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed italic mb-6 flex-grow">"Hosted our company's annual gala here. Professional AV, incredible catering, and the team handled every detail — even our last-minute changes."</p>
+          <div class="flex items-center gap-3 pt-5 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+            <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+              <img src="assets/staff3.jpg" alt="Marcus C." class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col justify-center">
+              <p class="font-bold text-sm text-[#2D1A28] dark:text-white leading-tight">Marcus C.</p>
+              <p class="text-[10px] uppercase tracking-widest text-[#D4AF7A] mt-1">Corporate Gala · Dec 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-venue p-6 sm:p-8 flex flex-col">
+          <div class="flex gap-1 mb-4">
+            <i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i><i class="fas fa-star text-[#D4AF7A]"></i>
+          </div>
+          <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed italic mb-6 flex-grow">"My daughter's sweet 16 was perfect. The Rose Terrace is gorgeous at sunset, and the staff went above and beyond to make her day special."</p>
+          <div class="flex items-center gap-3 pt-5 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+            <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+              <img src="assets/staff2.jpg" alt="Priya N." class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col justify-center">
+              <p class="font-bold text-sm text-[#2D1A28] dark:text-white leading-tight">Priya N.</p>
+              <p class="text-[10px] uppercase tracking-widest text-[#D4AF7A] mt-1">Sweet 16 · Aug 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- CTA -->
+      <div class="mt-14 max-w-4xl mx-auto">
+        <div class="rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden"
+             style="background:linear-gradient(135deg,#2D1A28 0%,#6B2E5A 60%,#D4AF7A 100%);">  
+          <div class="absolute top-0 right-0 w-72 h-72 bg-white/10 blur-[100px] rounded-full"></div>
+          <div class="relative z-10">
+            <i class="fas fa-glass-cheers text-[#F5E6D0] text-4xl mb-5"></i>
+            <h3 class="font-display text-2xl sm:text-4xl md:text-5xl text-white font-bold mb-4">Ready to Book Your Event?</h3>
+            <p class="text-white/85 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-light">
+              Schedule a tour of our halls and see why 3,200+ families chose Eventora for their most important moments.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="contact.html" class="btn-gold px-8 py-4 rounded-full font-bold text-sm">
+                <i class="fas fa-calendar-check mr-2"></i> Book a Tour
+              </a>
+              <a href="halls.html" class="px-8 py-4 rounded-full border-2 border-white/60 text-white font-semibold text-sm hover:bg-white/10 hover:border-[#F5E6D0] transition">
+                <i class="fas fa-images mr-2"></i> Browse Gallery
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — WHITE BACKGROUND (matches header)
+  ============================================================ -->
+  <footer class="footer-white relative overflow-hidden">
+    <!-- Decorative gradient accent bar at top -->
+    <div class="footer-accent-bar"></div>
+
+    <!-- Soft background glows -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#D4AF7A]/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#B8346B]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-14 sm:pt-16 pb-6 sm:pb-8">
+
+      <!-- Newsletter / CTA strip -->
+      <div class="mb-12 pb-10 border-b footer-divider">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-center md:text-left">
+            <h3 class="font-display text-2xl sm:text-3xl font-bold footer-heading mb-1">
+              Let's Plan Something <span class="italic text-[#D4AF7A]">Unforgettable</span>
+            </h3>
+            <p class="text-sm footer-text">Subscribe for seasonal offers, venue news, and event inspiration.</p>
+          </div>
+          <form class="flex w-full md:w-auto max-w-md gap-2" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Your email address" required
+                   class="flex-1 min-w-0 px-4 py-3 rounded-full border border-[#F0E4EC] dark:border-[#4A2540] bg-white dark:bg-[#201018] text-sm text-[#2D1A28] dark:text-white placeholder-[#9B7A8F] focus:outline-none focus:border-[#D4AF7A] transition" />
+            <button type="submit" class="btn-gold px-5 sm:px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap flex-shrink-0">
+              <i class="fas fa-paper-plane mr-1.5"></i> Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Main footer grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 pb-10 sm:pb-12 border-b footer-divider">
+
+        <div class="lg:col-span-2">
+          <a href="index.html" class="flex items-center gap-2.5 mb-5">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center shadow-md" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
+              <i class="fas fa-glass-cheers text-white text-base"></i>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display text-xl font-bold tracking-tight"><span class="logo-word">Event</span><span class="logo-accent">ora</span></span>
+              <span class="text-[9px] tracking-[0.28em] uppercase font-semibold text-[#9B7A8F] dark:text-[#C9A0B8]">Party Hall &amp; Banquet</span>
+            </div>
+          </a>
+          <p class="text-sm footer-text leading-relaxed max-w-sm mb-6">
+            Elegant halls, curated catering, and a team dedicated to celebrating life's biggest moments since 2012.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-youtube text-sm"></i></a>
+            <a href="#" class="footer-social w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"><i class="fab fa-pinterest text-sm"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="halls.html" class="footer-link">Our Halls</a></li>
+            <li><a href="packages.html" class="footer-link">Packages</a></li>
+            <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#" class="footer-link">Weddings</a></li>
+            <li><a href="#" class="footer-link">Corporate</a></li>
+            <li><a href="#" class="footer-link">Birthdays</a></li>
+            <li><a href="#" class="footer-link">Galas</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3 footer-text">
+              <i class="fas fa-map-marker-alt mt-1 text-[#D4AF7A]"></i>
+              <span>1200 Grand Boulevard<br>City Center, ST 12345</span>
+            </li>
+            <li class="flex items-center gap-3 footer-text">
+              <i class="fas fa-phone text-[#D4AF7A]"></i>
+              <span>(555) 234-7890</span>
+            </li>
+            <li class="flex items-center gap-3 footer-text">
+              <i class="fas fa-envelope text-[#D4AF7A]"></i>
+              <span>bookings@eventora.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="py-6 sm:py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs footer-text">
+        <p>© 2026 Eventora — Party Hall &amp; Banquet. All rights reserved.</p>
+        <div class="flex gap-4 sm:gap-6">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="contact.html" class="footer-link">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    (function() {
+      const html = document.documentElement;
+
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        if (theme === 'dark') html.classList.add('dark');
+        else html.classList.remove('dark');
+        localStorage.setItem('theme', theme);
+        document.querySelectorAll('.light-icon').forEach(i => i.classList.toggle('hidden', theme === 'dark'));
+        document.querySelectorAll('.dark-icon').forEach(i => i.classList.toggle('hidden', theme === 'light'));
+      }
+      applyTheme(savedTheme);
+
+      [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')]
+        .filter(Boolean).forEach(btn => btn.addEventListener('click', () => {
+          applyTheme(html.classList.contains('dark') ? 'light' : 'dark');
+        }));
+
+      const savedLang = localStorage.getItem('language') || 'en';
+      if (savedLang === 'ar') html.setAttribute('dir', 'rtl');
+      const toggleRTL = () => {
+        const next = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+        html.setAttribute('dir', next);
+        localStorage.setItem('language', next === 'rtl' ? 'ar' : 'en');
+      };
+      document.getElementById('lang-icon')?.addEventListener('click', toggleRTL);
+      document.getElementById('mobile-lang-toggle')?.addEventListener('click', toggleRTL);
+
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const content = document.getElementById('drawer-content');
+      const backdrop = document.getElementById('drawer-backdrop');
+      const openMenu = () => {
+        drawer.classList.remove('pointer-events-none');
+        content.classList.add('open');
+        backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
+      };
+      const closeMenu = () => {
+        content.classList.remove('open');
+        backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          drawer.classList.add('pointer-events-none');
+          document.body.style.overflow = '';
+        }, 300);
+      };
+      document.getElementById('mobile-menu-open')?.addEventListener('click', openMenu);
+      document.getElementById('mobile-menu-close')?.addEventListener('click', closeMenu);
+      backdrop?.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+      const setupAccordion = (toggleId, menuId, iconId) => {
+        document.getElementById(toggleId)?.addEventListener('click', () => {
+          document.getElementById(menuId)?.classList.toggle('hidden');
+          document.getElementById(iconId)?.classList.toggle('rotate-180');
+        });
+      };
+      setupAccordion('mobile-home-toggle', 'mobile-home-menu', 'home-icon');
+      setupAccordion('mobile-dashboard-toggle', 'mobile-dashboard-menu', 'dashboard-icon');
+    })();
+  </script>
+</body>
+</html>
