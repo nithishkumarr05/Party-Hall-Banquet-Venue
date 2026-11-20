@@ -26,6 +26,12 @@
               'blush-light': '#FCE8F0',
               bg: '#FFFFFF',
               'bg-soft': '#FDF8FA',
+              'dark-bg': '#120A10',
+              'dark-card': '#1A0F18',
+              'dark-surface': '#201018',
+              'dark-border': '#4A2540',
+              'dark-text': '#F5EAF0',
+              'dark-muted': '#C9A0B8',
             }
           },
           fontFamily: {
@@ -55,7 +61,9 @@
   <style>
     h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
     p { font-weight: 400; }
-    p strong, p b { font-weight: 550 !important; }
+    p strong, p b, p.font-bold, p.font-semibold { font-weight: 550 !important; }
+    p.font-medium { font-weight: 500 !important; }
+    p.font-light, p.font-thin, p.font-extralight { font-weight: 400 !important; }
     .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
     body {
@@ -367,7 +375,7 @@
       position: absolute;
       inset: 0;
       border-radius: 9999px;
-      background: #10b981;
+      background: #2E7D5A;
       opacity: 0.5;
       animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
@@ -428,6 +436,7 @@
           <a href="halls.html" class="nav-link active">Halls</a>
           <a href="packages.html" class="nav-link">Packages</a>
           <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="contact.html" class="nav-link">Contact</a>
 
           <div class="dropdown-wrapper">
             <button class="nav-link flex items-center">
@@ -449,11 +458,8 @@
             <svg class="w-4 h-4 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             <svg class="w-4 h-4 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </button>
-          <a href="login.html" class="hidden xl:inline-flex px-5 py-2.5 rounded-full border-2 border-[#4A1D3D] dark:border-[#F5E6D0] text-[#4A1D3D] dark:text-[#F5E6D0] text-xs font-bold hover:bg-[#4A1D3D] hover:text-white dark:hover:bg-[#F5E6D0] dark:hover:text-[#2D1A28] transition">
-            Login
-          </a>
-          <a href="signup.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
-            <i class="fas fa-user-plus mr-1.5"></i> Sign Up
+          <a href="login.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
+            <i class="fas fa-user mr-1.5"></i> Login
           </a>
           <button id="mobile-menu-open" class="xl:hidden icon-btn" aria-label="Open menu">
             <i class="fas fa-bars text-base"></i>
@@ -495,6 +501,7 @@
           <a href="halls.html" class="py-3 px-3 rounded-xl font-semibold text-[#D4AF7A] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">Halls</a>
           <a href="packages.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Packages</a>
           <a href="gallery.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Gallery</a>
+          <a href="contact.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Contact</a>
 
           <div>
             <button class="w-full flex justify-between items-center py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition" id="mobile-dashboard-toggle">
@@ -508,10 +515,9 @@
           </div>
         </nav>
 
-        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540] flex flex-col gap-3">
-          <a href="login.html" class="w-full text-center border-2 border-[#F0E4EC] dark:border-[#4A2540] rounded-xl py-3 font-bold text-sm text-[#4A1D3D] dark:text-white hover:border-[#D4AF7A] hover:text-[#D4AF7A] transition">Login</a>
-          <a href="signup.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
-            <i class="fas fa-user-plus mr-2"></i> Sign Up
+        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+          <a href="login.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
+            <i class="fas fa-user mr-2"></i> Login
           </a>
         </div>
 
@@ -533,7 +539,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        SECTION 1 · HERO — OUR HALLS
   ═══════════════════════════════════════════════════════════ -->
-  <section class="hero-halls relative min-h-[75vh] sm:min-h-[70vh] flex items-center overflow-hidden">
+  <section class="hero-halls relative min-h-[88vh] sm:min-h-[85vh] flex items-center overflow-hidden">
     <div class="hero-dots absolute inset-0 opacity-40"></div>
 
     <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
@@ -543,13 +549,13 @@
           <span class="text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase">Our Halls</span>
         </div>
 
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-bold">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-semibold">
           Find the Perfect <br>
           <span class="italic text-[#F5E6D0]">Space</span> for Your <br>
           Celebration.
         </h1>
 
-        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
           Eight uniquely designed halls — from intimate garden rooms to grand ballrooms — each crafted for a different kind of unforgettable.
         </p>
 
@@ -563,15 +569,15 @@
         <!-- Quick stats -->
         <div class="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
           <div class="text-center">
-            <p class="font-display text-3xl sm:text-4xl text-white font-bold">8</p>
+            <p class="font-display text-3xl sm:text-4xl text-white font-medium">8</p>
             <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/60 mt-1">Unique Halls</p>
           </div>
           <div class="text-center">
-            <p class="font-display text-3xl sm:text-4xl text-white font-bold">10<span class="text-[#D4AF7A]">-</span>450</p>
+            <p class="font-display text-3xl sm:text-4xl text-white font-medium">10<span class="text-[#D4AF7A]">-</span>450</p>
             <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/60 mt-1">Guest Range</p>
           </div>
           <div class="text-center">
-            <p class="font-display text-3xl sm:text-4xl text-white font-bold">5,800<span class="text-[#D4AF7A]">ft²</span></p>
+            <p class="font-display text-3xl sm:text-4xl text-white font-medium">5,800<span class="text-[#D4AF7A]">ft²</span></p>
             <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/60 mt-1">Largest Hall</p>
           </div>
         </div>
@@ -623,7 +629,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#B8346B] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Wedding Halls</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Where Forever <span class="italic text-[#B8346B]">Begins</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -643,15 +649,15 @@
               <span class="inline-block bg-[#D4AF7A] text-[#2D1A28] text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full">Most Popular</span>
             </div>
             <div class="absolute bottom-6 left-6 right-6">
-              <p class="text-white/80 text-xs uppercase tracking-widest font-bold mb-1">Grand Hall · 5,800 sqft</p>
-              <h3 class="font-display text-2xl sm:text-3xl text-white font-bold">The Crystal Ballroom</h3>
+              <p class="text-white/80 text-xs uppercase tracking-widest font-medium mb-1">Grand Hall · 5,800 sqft</p>
+              <h3 class="font-display text-2xl sm:text-3xl text-white font-semibold">The Crystal Ballroom</h3>
             </div>
           </div>
 
           <!-- Content -->
           <div>
             <span class="text-[#D4AF7A] text-[10px] font-bold uppercase tracking-[0.25em]">Featured Wedding Venue</span>
-            <h3 class="font-display text-3xl sm:text-4xl font-bold text-[#2D1A28] dark:text-white mt-3 mb-5 leading-tight">
+            <h3 class="font-display text-3xl sm:text-4xl font-semibold text-[#2D1A28] dark:text-white mt-3 mb-5 leading-tight">
               The Crystal Ballroom
             </h3>
             <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base leading-relaxed mb-7">
@@ -665,7 +671,7 @@
                   <i class="fas fa-users text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Up to 400 Guests</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Up to 400 Guests</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Seated dinner or 500 cocktail</p>
                 </div>
               </div>
@@ -675,7 +681,7 @@
                   <i class="fas fa-ring text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Bridal Suite</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Bridal Suite</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Private room for the couple</p>
                 </div>
               </div>
@@ -685,7 +691,7 @@
                   <i class="fas fa-music text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Full AV &amp; Band Setup</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Full AV &amp; Band Setup</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Sound &amp; lighting included</p>
                 </div>
               </div>
@@ -695,14 +701,14 @@
                   <i class="fas fa-utensils text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Gourmet Catering</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Gourmet Catering</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Custom wedding menus</p>
                 </div>
               </div>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3 mb-6">
-              <p class="font-display text-2xl font-bold text-[#D4AF7A]">From $2,400<span class="text-sm font-normal text-[#6B4A5E] dark:text-[#B8A0B0]">/ event</span></p>
+              <p class="font-display text-2xl font-medium text-[#D4AF7A]">From $2,400<span class="text-sm font-normal text-[#6B4A5E] dark:text-[#B8A0B0]">/ event</span></p>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3">
@@ -722,27 +728,27 @@
             <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#B8346B,#6B2E5A);">
               <i class="fas fa-heart text-white text-lg"></i>
             </div>
-            <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">The Rose Terrace</h4>
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">The Rose Terrace</h4>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Garden wedding · 120 guests</p>
-            <p class="font-display text-sm font-bold text-[#D4AF7A] mt-2">From $1,100</p>
+            <p class="font-display text-sm font-medium text-[#D4AF7A] mt-2">From $1,100</p>
           </div>
 
           <div class="card-venue p-6 text-center">
             <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#6B2E5A,#4A1D3D);">
               <i class="fas fa-champagne-glasses text-white text-lg"></i>
             </div>
-            <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">The Grand Ballroom</h4>
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">The Grand Ballroom</h4>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Luxury wedding · 400 guests</p>
-            <p class="font-display text-sm font-bold text-[#D4AF7A] mt-2">From $2,400</p>
+            <p class="font-display text-sm font-medium text-[#D4AF7A] mt-2">From $2,400</p>
           </div>
 
           <div class="card-venue p-6 text-center">
             <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#D4AF7A,#B8346B);">
               <i class="fas fa-gem text-white text-lg"></i>
             </div>
-            <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">The Emerald Room</h4>
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">The Emerald Room</h4>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Intimate wedding · 80 guests</p>
-            <p class="font-display text-sm font-bold text-[#D4AF7A] mt-2">From $880</p>
+            <p class="font-display text-sm font-medium text-[#D4AF7A] mt-2">From $880</p>
           </div>
         </div>
       </div>
@@ -758,7 +764,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Birthday Party Halls</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Parties That <span class="italic text-[#D4AF7A]">Spark Joy</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -773,7 +779,7 @@
           <!-- Content (left on desktop) -->
           <div class="order-2 lg:order-1">
             <span class="text-[#D4AF7A] text-[10px] font-bold uppercase tracking-[0.25em]">Featured Birthday Venue</span>
-            <h3 class="font-display text-3xl sm:text-4xl font-bold text-[#2D1A28] dark:text-white mt-3 mb-5 leading-tight">
+            <h3 class="font-display text-3xl sm:text-4xl font-semibold text-[#2D1A28] dark:text-white mt-3 mb-5 leading-tight">
               The Celebration Lounge
             </h3>
             <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base leading-relaxed mb-7">
@@ -787,7 +793,7 @@
                   <i class="fas fa-users text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Up to 180 Guests</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Up to 180 Guests</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Flexible party layouts</p>
                 </div>
               </div>
@@ -797,7 +803,7 @@
                   <i class="fas fa-music text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">DJ &amp; Dance Floor</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">DJ &amp; Dance Floor</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Party-ready setup</p>
                 </div>
               </div>
@@ -807,7 +813,7 @@
                   <i class="fas fa-cake-candles text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Custom Cake Station</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Custom Cake Station</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Dessert display area</p>
                 </div>
               </div>
@@ -817,14 +823,14 @@
                   <i class="fas fa-camera text-white text-sm"></i>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Photo Backdrops</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Photo Backdrops</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Themed photo zones</p>
                 </div>
               </div>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3 mb-6">
-              <p class="font-display text-2xl font-bold text-[#D4AF7A]">From $1,499<span class="text-sm font-normal text-[#6B4A5E] dark:text-[#B8A0B0]">/ event</span></p>
+              <p class="font-display text-2xl font-medium text-[#D4AF7A]">From $1,499<span class="text-sm font-normal text-[#6B4A5E] dark:text-[#B8A0B0]">/ event</span></p>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3">
@@ -845,8 +851,8 @@
               <span class="inline-block bg-[#B8346B] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full">Party Ready</span>
             </div>
             <div class="absolute bottom-6 left-6 right-6">
-              <p class="text-white/80 text-xs uppercase tracking-widest font-bold mb-1">Mid-Size Hall · 2,400 sqft</p>
-              <h3 class="font-display text-2xl sm:text-3xl text-white font-bold">The Celebration Lounge</h3>
+              <p class="text-white/80 text-xs uppercase tracking-widest font-medium mb-1">Mid-Size Hall · 2,400 sqft</p>
+              <h3 class="font-display text-2xl sm:text-3xl text-white font-semibold">The Celebration Lounge</h3>
             </div>
           </div>
         </div>
@@ -857,27 +863,27 @@
             <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#D4AF7A,#B8346B);">
               <i class="fas fa-birthday-cake text-white text-lg"></i>
             </div>
-            <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">The Party Loft</h4>
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">The Party Loft</h4>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Sweet 16 · 100 guests</p>
-            <p class="font-display text-sm font-bold text-[#D4AF7A] mt-2">From $980</p>
+            <p class="font-display text-sm font-medium text-[#D4AF7A] mt-2">From $980</p>
           </div>
 
           <div class="card-venue p-6 text-center">
             <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#6B2E5A,#4A1D3D);">
               <i class="fas fa-champagne-glasses text-white text-lg"></i>
             </div>
-            <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">The Milestone Room</h4>
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">The Milestone Room</h4>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">50th birthday · 150 guests</p>
-            <p class="font-display text-sm font-bold text-[#D4AF7A] mt-2">From $1,250</p>
+            <p class="font-display text-sm font-medium text-[#D4AF7A] mt-2">From $1,250</p>
           </div>
 
           <div class="card-venue p-6 text-center">
             <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background:linear-gradient(135deg,#B8346B,#6B2E5A);">
               <i class="fas fa-hat-wizard text-white text-lg"></i>
             </div>
-            <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">The Kids' Castle</h4>
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">The Kids' Castle</h4>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Children's parties · 60 guests</p>
-            <p class="font-display text-sm font-bold text-[#D4AF7A] mt-2">From $650</p>
+            <p class="font-display text-sm font-medium text-[#D4AF7A] mt-2">From $650</p>
           </div>
         </div>
       </div>
@@ -893,7 +899,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Corporate Event Halls</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Where Business Meets <span class="italic text-[#D4AF7A]">Elegance</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -906,11 +912,11 @@
 
         <!-- Corporate 1 -->
         <div class="card-venue p-7 sm:p-8 flex flex-col">
-          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-               style="background:linear-gradient(135deg,#4A1D3D,#6B2E5A);">
-            <i class="fas fa-chalkboard-user text-[#D4AF7A] text-xl"></i>
+          <div class="w-full h-44 rounded-2xl overflow-hidden mb-5 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=800&q=80" alt="The Executive Suite" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h3 class="font-display text-xl font-bold text-[#2D1A28] dark:text-white mb-2">The Executive Suite</h3>
+          <h3 class="font-display text-xl font-semibold text-[#2D1A28] dark:text-white mb-2">The Executive Suite</h3>
           <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-5">Intimate boardroom for executive meetings, presentations, and strategy sessions.</p>
           <ul class="space-y-2.5 text-sm mb-6 flex-grow">
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Up to 80 delegates</span></li>
@@ -919,7 +925,7 @@
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Catering &amp; refreshments</span></li>
           </ul>
           <div class="pt-4 border-t border-[#F0E4EC] dark:border-[#4A2540]">
-            <p class="font-display text-lg font-bold text-[#D4AF7A] mb-3">From $780/day</p>
+            <p class="font-display text-lg font-medium text-[#D4AF7A] mb-3">From $780/day</p>
             <a href="packages.html" class="text-xs font-bold text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] transition">View Details →</a>
           </div>
         </div>
@@ -927,11 +933,11 @@
         <!-- Corporate 2 (featured) -->
         <div class="card-venue p-7 sm:p-8 flex flex-col relative border-2 border-[#D4AF7A] shadow-2xl">
           <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#D4AF7A] to-[#6B2E5A] text-white text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full whitespace-nowrap">Most Requested</span>
-          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 mt-2"
-               style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
-            <i class="fas fa-trophy text-white text-xl"></i>
+          <div class="w-full h-44 rounded-2xl overflow-hidden mb-5 mt-2 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80" alt="The Grand Ballroom" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h3 class="font-display text-xl font-bold text-[#2D1A28] dark:text-white mb-2">The Grand Ballroom</h3>
+          <h3 class="font-display text-xl font-semibold text-[#2D1A28] dark:text-white mb-2">The Grand Ballroom</h3>
           <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-5">Premier corporate venue for award galas, annual dinners, and large-scale conferences.</p>
           <ul class="space-y-2.5 text-sm mb-6 flex-grow">
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Up to 400 guests</span></li>
@@ -940,18 +946,18 @@
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Valet parking included</span></li>
           </ul>
           <div class="pt-4 border-t border-[#F0E4EC] dark:border-[#4A2540]">
-            <p class="font-display text-lg font-bold text-[#D4AF7A] mb-3">From $3,800/event</p>
+            <p class="font-display text-lg font-medium text-[#D4AF7A] mb-3">From $3,800/event</p>
             <a href="packages.html" class="btn-gold w-full text-center py-2.5 rounded-full font-bold text-xs inline-block">Book This Package</a>
           </div>
         </div>
 
         <!-- Corporate 3 -->
         <div class="card-venue p-7 sm:p-8 flex flex-col">
-          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-               style="background:linear-gradient(135deg,#B8346B,#4A1D3D);">
-            <i class="fas fa-rocket text-[#D4AF7A] text-xl"></i>
+          <div class="w-full h-44 rounded-2xl overflow-hidden mb-5 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="The Innovation Hub" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h3 class="font-display text-xl font-bold text-[#2D1A28] dark:text-white mb-2">The Innovation Hub</h3>
+          <h3 class="font-display text-xl font-semibold text-[#2D1A28] dark:text-white mb-2">The Innovation Hub</h3>
           <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-5">Tech-forward space for product launches, press events, and brand activations.</p>
           <ul class="space-y-2.5 text-sm mb-6 flex-grow">
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Up to 150 guests</span></li>
@@ -960,7 +966,7 @@
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Cocktail &amp; canapé menus</span></li>
           </ul>
           <div class="pt-4 border-t border-[#F0E4EC] dark:border-[#4A2540]">
-            <p class="font-display text-lg font-bold text-[#D4AF7A] mb-3">From $2,100/event</p>
+            <p class="font-display text-lg font-medium text-[#D4AF7A] mb-3">From $2,100/event</p>
             <a href="packages.html" class="text-xs font-bold text-[#4A1D3D] dark:text-white hover:text-[#D4AF7A] transition">View Details →</a>
           </div>
         </div>
@@ -970,19 +976,19 @@
       <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-5 max-w-5xl mx-auto">
         <div class="text-center p-5 rounded-2xl bg-[#FDF8FA] dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-wifi text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">High-Speed WiFi</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">High-Speed WiFi</p>
         </div>
         <div class="text-center p-5 rounded-2xl bg-[#FDF8FA] dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-video text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">Live Streaming</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">Live Streaming</p>
         </div>
         <div class="text-center p-5 rounded-2xl bg-[#FDF8FA] dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-car text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">Valet Parking</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">Valet Parking</p>
         </div>
         <div class="text-center p-5 rounded-2xl bg-[#FDF8FA] dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-headset text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">On-Site Support</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">On-Site Support</p>
         </div>
       </div>
     </div>
@@ -997,7 +1003,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Hall Capacity</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Find Your <span class="italic text-[#D4AF7A]">Perfect Fit</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -1015,11 +1021,11 @@
                 <i class="fas fa-heart text-white text-sm"></i>
               </div>
               <div>
-                <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">The Emerald Room</p>
+                <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">The Emerald Room</p>
                 <p class="text-[10px] uppercase tracking-widest text-[#9B7A8F] dark:text-[#C9A0B8]">Intimate events</p>
               </div>
             </div>
-            <p class="font-display font-bold text-[#D4AF7A] text-sm">80 guests</p>
+            <p class="font-display font-medium text-[#D4AF7A] text-sm">80 guests</p>
           </div>
           <div class="h-2 rounded-full bg-[#F0E4EC] dark:bg-[#4A2540] overflow-hidden">
             <div class="capacity-bar h-full rounded-full" style="width: 18%; background:linear-gradient(90deg,#B8346B,#6B2E5A);"></div>
@@ -1033,11 +1039,11 @@
                 <i class="fas fa-users text-white text-sm"></i>
               </div>
               <div>
-                <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">The Rose Terrace</p>
+                <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">The Rose Terrace</p>
                 <p class="text-[10px] uppercase tracking-widest text-[#9B7A8F] dark:text-[#C9A0B8]">Garden events</p>
               </div>
             </div>
-            <p class="font-display font-bold text-[#D4AF7A] text-sm">120 guests</p>
+            <p class="font-display font-medium text-[#D4AF7A] text-sm">120 guests</p>
           </div>
           <div class="h-2 rounded-full bg-[#F0E4EC] dark:bg-[#4A2540] overflow-hidden">
             <div class="capacity-bar h-full rounded-full" style="width: 27%; background:linear-gradient(90deg,#D4AF7A,#6B2E5A);"></div>
@@ -1051,11 +1057,11 @@
                 <i class="fas fa-cake-candles text-white text-sm"></i>
               </div>
               <div>
-                <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">The Celebration Lounge</p>
+                <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">The Celebration Lounge</p>
                 <p class="text-[10px] uppercase tracking-widest text-[#9B7A8F] dark:text-[#C9A0B8]">Birthday parties</p>
               </div>
             </div>
-            <p class="font-display font-bold text-[#D4AF7A] text-sm">180 guests</p>
+            <p class="font-display font-medium text-[#D4AF7A] text-sm">180 guests</p>
           </div>
           <div class="h-2 rounded-full bg-[#F0E4EC] dark:bg-[#4A2540] overflow-hidden">
             <div class="capacity-bar h-full rounded-full" style="width: 40%; background:linear-gradient(90deg,#D4AF7A,#B8346B);"></div>
@@ -1069,11 +1075,11 @@
                 <i class="fas fa-briefcase text-white text-sm"></i>
               </div>
               <div>
-                <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">The Innovation Hub</p>
+                <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">The Innovation Hub</p>
                 <p class="text-[10px] uppercase tracking-widest text-[#9B7A8F] dark:text-[#C9A0B8]">Corporate events</p>
               </div>
             </div>
-            <p class="font-display font-bold text-[#D4AF7A] text-sm">150 guests</p>
+            <p class="font-display font-medium text-[#D4AF7A] text-sm">150 guests</p>
           </div>
           <div class="h-2 rounded-full bg-[#F0E4EC] dark:bg-[#4A2540] overflow-hidden">
             <div class="capacity-bar h-full rounded-full" style="width: 33%; background:linear-gradient(90deg,#4A1D3D,#B8346B);"></div>
@@ -1087,11 +1093,11 @@
                 <i class="fas fa-crown text-white text-sm"></i>
               </div>
               <div>
-                <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">The Grand Ballroom <span class="text-[#D4AF7A]">★</span></p>
+                <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">The Grand Ballroom <span class="text-[#D4AF7A]">★</span></p>
                 <p class="text-[10px] uppercase tracking-widest text-[#9B7A8F] dark:text-[#C9A0B8]">Largest hall</p>
               </div>
             </div>
-            <p class="font-display font-bold text-[#D4AF7A] text-sm">400 guests</p>
+            <p class="font-display font-medium text-[#D4AF7A] text-sm">400 guests</p>
           </div>
           <div class="h-2 rounded-full bg-[#F0E4EC] dark:bg-[#4A2540] overflow-hidden">
             <div class="capacity-bar h-full rounded-full" style="width: 100%; background:linear-gradient(90deg,#D4AF7A,#B8346B,#6B2E5A);"></div>
@@ -1188,7 +1194,7 @@
     <div class="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Check Availability</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Is Your Date <span class="italic text-[#D4AF7A]">Still Open?</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -1200,83 +1206,83 @@
 
         <!-- Left — availability status list -->
         <div>
-          <h3 class="font-display text-xl font-bold text-[#2D1A28] dark:text-white mb-5">This Week's Availability</h3>
+          <h3 class="font-display text-xl font-semibold text-[#2D1A28] dark:text-white mb-5">This Week's Availability</h3>
 
           <div class="space-y-3">
             <div class="card-venue p-4 flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="relative w-3 h-3 rounded-full bg-emerald-500">
+                <div class="relative w-3 h-3 rounded-full bg-[#2E7D5A]">
                   <span class="status-available absolute inset-0 rounded-full"></span>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">The Grand Ballroom</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-[#F5EAF0]">The Grand Ballroom</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Sat, 15 Nov · Evening</p>
                 </div>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Available</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#1B6343] dark:text-[#72D9A7]">Available</span>
             </div>
 
             <div class="card-venue p-4 flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                <div class="w-3 h-3 rounded-full bg-[#D4AF7A]"></div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">The Celebration Lounge</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-[#F5EAF0]">The Celebration Lounge</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Sun, 16 Nov · Afternoon</p>
                 </div>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">Few Left</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#936622] dark:text-[#E8CDA0]">Few Left</span>
             </div>
 
             <div class="card-venue p-4 flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="relative w-3 h-3 rounded-full bg-emerald-500">
+                <div class="relative w-3 h-3 rounded-full bg-[#2E7D5A]">
                   <span class="status-available absolute inset-0 rounded-full"></span>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">The Rose Terrace</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-[#F5EAF0]">The Rose Terrace</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Fri, 21 Nov · Evening</p>
                 </div>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Available</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#1B6343] dark:text-[#72D9A7]">Available</span>
             </div>
 
             <div class="card-venue p-4 flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                <div class="w-3 h-3 rounded-full bg-[#B8346B]"></div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">The Executive Suite</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-[#F5EAF0]">The Executive Suite</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Sat, 22 Nov · Morning</p>
                 </div>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-rose-600 dark:text-rose-400">Booked</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#9E1B4E] dark:text-[#FDA4AF]">Booked</span>
             </div>
 
             <div class="card-venue p-4 flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="relative w-3 h-3 rounded-full bg-emerald-500">
+                <div class="relative w-3 h-3 rounded-full bg-[#2E7D5A]">
                   <span class="status-available absolute inset-0 rounded-full"></span>
                 </div>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">The Innovation Hub</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-[#F5EAF0]">The Innovation Hub</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Thu, 27 Nov · Full Day</p>
                 </div>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Available</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#1B6343] dark:text-[#72D9A7]">Available</span>
             </div>
           </div>
 
           <!-- Legend -->
           <div class="flex flex-wrap items-center gap-5 mt-6 text-xs">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              <span class="w-3 h-3 rounded-full bg-[#2E7D5A]"></span>
               <span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Available</span>
             </div>
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+              <span class="w-3 h-3 rounded-full bg-[#D4AF7A]"></span>
               <span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Few Slots Left</span>
             </div>
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+              <span class="w-3 h-3 rounded-full bg-[#B8346B]"></span>
               <span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Fully Booked</span>
             </div>
           </div>
@@ -1285,7 +1291,7 @@
         <!-- Right — availability form -->
         <div class="card-venue p-7 sm:p-9 shadow-2xl">
           <div class="mb-6">
-            <h3 class="font-display text-2xl font-bold text-[#2D1A28] dark:text-white mb-2">Check Your Date</h3>
+            <h3 class="font-display text-2xl font-semibold text-[#2D1A28] dark:text-white mb-2">Check Your Date</h3>
             <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8]">Fill in your details and we'll confirm availability within 24 hours.</p>
           </div>
 
@@ -1364,7 +1370,7 @@
           <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div class="text-center lg:text-left">
               <span class="text-[#F5E6D0] text-[10px] font-bold uppercase tracking-widest">Can't Decide?</span>
-              <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-bold mt-2 mb-3">
+              <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-semibold mt-2 mb-3">
                 Book a Personal Tour
               </h3>
               <p class="text-white/85 text-sm sm:text-base max-w-lg">
@@ -1397,7 +1403,7 @@
       <div class="mb-12 pb-10 border-b footer-divider">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="text-center md:text-left">
-            <h3 class="font-display text-2xl sm:text-3xl font-bold footer-heading mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold footer-heading mb-1">
               Let's Plan Something <span class="italic text-[#D4AF7A]">Unforgettable</span>
             </h3>
             <p class="text-sm footer-text">Subscribe for seasonal offers, venue news, and event inspiration.</p>
@@ -1436,7 +1442,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="halls.html" class="footer-link">Our Halls</a></li>
             <li><a href="packages.html" class="footer-link">Packages</a></li>
@@ -1446,7 +1452,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="#" class="footer-link">Weddings</a></li>
             <li><a href="#" class="footer-link">Corporate</a></li>
@@ -1456,7 +1462,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
           <ul class="space-y-3 text-sm">
             <li class="flex items-start gap-3 footer-text">
               <i class="fas fa-map-marker-alt mt-1 text-[#D4AF7A]"></i>

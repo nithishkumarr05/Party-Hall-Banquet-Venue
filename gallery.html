@@ -24,6 +24,12 @@
               'blush-light': '#FCE8F0',
               bg: '#FFFFFF',
               'bg-soft': '#FDF8FA',
+              'dark-bg': '#120A10',
+              'dark-card': '#1A0F18',
+              'dark-surface': '#201018',
+              'dark-border': '#4A2540',
+              'dark-text': '#F5EAF0',
+              'dark-muted': '#C9A0B8',
             }
           },
           fontFamily: {
@@ -51,7 +57,9 @@
   <style>
     h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
     p { font-weight: 400; }
-    p strong, p b { font-weight: 550 !important; }
+    p strong, p b, p.font-bold, p.font-semibold { font-weight: 550 !important; }
+    p.font-medium { font-weight: 500 !important; }
+    p.font-light, p.font-thin, p.font-extralight { font-weight: 400 !important; }
     .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
     body {
@@ -501,6 +509,7 @@
           <a href="halls.html" class="nav-link">Halls</a>
           <a href="packages.html" class="nav-link">Packages</a>
           <a href="gallery.html" class="nav-link active">Gallery</a>
+          <a href="contact.html" class="nav-link">Contact</a>
 
           <div class="dropdown-wrapper">
             <button class="nav-link flex items-center">
@@ -522,11 +531,8 @@
             <svg class="w-4 h-4 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             <svg class="w-4 h-4 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </button>
-          <a href="login.html" class="hidden xl:inline-flex px-5 py-2.5 rounded-full border-2 border-[#4A1D3D] dark:border-[#F5E6D0] text-[#4A1D3D] dark:text-[#F5E6D0] text-xs font-bold hover:bg-[#4A1D3D] hover:text-white dark:hover:bg-[#F5E6D0] dark:hover:text-[#2D1A28] transition">
-            Login
-          </a>
-          <a href="signup.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
-            <i class="fas fa-user-plus mr-1.5"></i> Sign Up
+          <a href="login.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
+            <i class="fas fa-user mr-1.5"></i> Login
           </a>
           <button id="mobile-menu-open" class="xl:hidden icon-btn" aria-label="Open menu">
             <i class="fas fa-bars text-base"></i>
@@ -581,10 +587,9 @@
           </div>
         </nav>
 
-        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540] flex flex-col gap-3">
-          <a href="login.html" class="w-full text-center border-2 border-[#F0E4EC] dark:border-[#4A2540] rounded-xl py-3 font-bold text-sm text-[#4A1D3D] dark:text-white hover:border-[#D4AF7A] hover:text-[#D4AF7A] transition">Login</a>
-          <a href="signup.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
-            <i class="fas fa-user-plus mr-2"></i> Sign Up
+        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+          <a href="login.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
+            <i class="fas fa-user mr-2"></i> Login
           </a>
         </div>
 
@@ -606,9 +611,9 @@
   <!-- ═══════════════════════════════════════════════════════════
        SECTION 1 · HERO — MAGAZINE COLLAGE (images removed)
   ═══════════════════════════════════════════════════════════ -->
-  <section class="hero-gallery relative min-h-[90vh] sm:min-h-[85vh] flex items-center overflow-hidden py-16 sm:py-0">
+  <section class="hero-gallery relative min-h-[88vh] sm:min-h-[85vh] flex items-center overflow-hidden">
 
-    <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
       <div class="max-w-3xl mx-auto text-center animate-slide-up">
 
         <!-- Camera icon badge -->
@@ -617,12 +622,12 @@
           <span class="text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase">Photo Gallery</span>
         </div>
 
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-bold">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-semibold">
           Moments That <br>
           <span class="italic text-[#F5E6D0]">Live Forever.</span>
         </h1>
 
-        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
           A curated look at the celebrations we've hosted — weddings, birthdays, galas, and everything in between. Every photo tells a story.
         </p>
 
@@ -641,8 +646,11 @@
           <a href="#birthday-celebrations" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium hover:bg-[#D4AF7A] hover:text-[#2D1A28] hover:border-transparent transition">
             <i class="fas fa-cake-candles mr-1.5 text-[10px]"></i> Birthdays
           </a>
+          <a href="#corporate-events" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium hover:bg-[#D4AF7A] hover:text-[#2D1A28] hover:border-transparent transition">
+            <i class="fas fa-briefcase mr-1.5 text-[10px]"></i> Corporate Galas
+          </a>
           <a href="#decoration-gallery" class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium hover:bg-[#D4AF7A] hover:text-[#2D1A28] hover:border-transparent transition">
-            <i class="fas fa-leaf mr-1.5 text-[10px]"></i> Décor
+            <i class="fas fa-leaf mr-1.5 text-[10px]"></i> Décor &amp; Ambiance
           </a>
         </div>
       </div>
@@ -686,7 +694,7 @@
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
         <div class="max-w-2xl">
           <span class="text-[#B8346B] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Wedding Events</span>
-          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-3 font-bold">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-3 font-semibold">
             Where Love Takes <span class="italic text-[#B8346B]">Center Stage</span>
           </h2>
           <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Real weddings, real moments — captured at Eventora.</p>
@@ -705,7 +713,7 @@
         </div>
 
         <div class="masonry-item">
-          <img src="assets/g9.jpg" alt="Reception table">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Reception table">
         </div>
 
         <div class="masonry-item">
@@ -721,11 +729,11 @@
         </div>
 
         <div class="masonry-item">
-          <img src="assets/g6.jpg" alt="Wedding rings">
+          <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80" alt="Wedding rings">
         </div>
 
         <div class="masonry-item">
-          <img src="assets/g7.jpg" alt="Wedding cake">
+          <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80" alt="Wedding cake">
         </div>
 
      
@@ -742,7 +750,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Birthday Celebrations</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Snapshots of <span class="italic text-[#D4AF7A]">Pure Joy</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Polaroid-style memories from our most vibrant birthday parties.</p>
@@ -758,13 +766,13 @@
 
         <div class="polaroid">
           <div class="polaroid-tape"></div>
-          <img src="assets/in1.jpg" alt="Confetti">
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" alt="Confetti">
           <p class="polaroid-caption">Confetti Hour · 2024</p>
         </div>
 
         <div class="polaroid">
           <div class="polaroid-tape"></div>
-          <img src="assets/home2.jpg" alt="50th Birthday">
+          <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&q=80" alt="50th Birthday">
           <p class="polaroid-caption">Golden 50th · 2025</p>
         </div>
 
@@ -798,15 +806,94 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════
-       SECTION 6 · DECORATION GALLERY (square tile grid)
+       SECTION 4 · CORPORATE GALAS & BANQUETS
   ═══════════════════════════════════════════════════════════ -->
-  <section id="decoration-gallery" class="section-pad bg-white dark:bg-[#120A10] transition-colors relative overflow-hidden">
+  <section id="corporate-events" class="section-pad bg-white dark:bg-[#120A10] transition-colors relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-[#4A1D3D]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+        <div class="max-w-2xl">
+          <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Corporate &amp; Gala Events</span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-3 font-semibold">
+            Prestigious Gatherings, <span class="italic text-[#D4AF7A]">Executed Flawlessly</span>
+          </h2>
+          <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Annual awards banquets, executive conferences, and summit dinners at Eventora.</p>
+        </div>
+        <span class="text-xs font-bold text-[#D4AF7A] tracking-widest uppercase">85+ Corporate Galas</span>
+      </div>
+
+      <!-- 4-Card Corporate Showcase Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="card-venue overflow-hidden group shadow-md">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80" alt="Annual Awards Banquet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 bg-[#4A1D3D]/90 backdrop-blur-md text-[#D4AF7A] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#D4AF7A]/30">
+              Awards Gala
+            </span>
+          </div>
+          <div class="p-4 sm:p-5">
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">Annual Excellence Gala</h4>
+            <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Grand Ballroom setup with tiered banquet tables &amp; stage podium.</p>
+          </div>
+        </div>
+
+        <div class="card-venue overflow-hidden group shadow-md">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80" alt="Executive Keynote Conference" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 bg-[#6B2E5A]/90 backdrop-blur-md text-[#F5E6D0] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white/20">
+              Conference
+            </span>
+          </div>
+          <div class="p-4 sm:p-5">
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">Executive Summit</h4>
+            <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Theater-style layout with high-speed WiFi &amp; live-stream cameras.</p>
+          </div>
+        </div>
+
+        <div class="card-venue overflow-hidden group shadow-md">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80" alt="Corporate Gala Networking Dinner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 bg-[#B8346B]/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white/20">
+              Networking Dinner
+            </span>
+          </div>
+          <div class="p-4 sm:p-5">
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">VIP Partner Dinner</h4>
+            <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Crystal centerpiece tables with custom sommelier wine pairing.</p>
+          </div>
+        </div>
+
+        <div class="card-venue overflow-hidden group shadow-md">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="Lighting & Sound Production" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 bg-[#2D1A28]/90 backdrop-blur-md text-[#D4AF7A] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#D4AF7A]/30">
+              Stage &amp; AV
+            </span>
+          </div>
+          <div class="p-4 sm:p-5">
+            <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">Product Launch Activation</h4>
+            <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Concert-grade moving head lighting &amp; digital LED video wall.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 5 · DECORATION GALLERY (square tile grid)
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="decoration-gallery" class="section-pad bg-[#FDF8FA] dark:bg-[#1A0F18] transition-colors relative overflow-hidden">
     <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF7A]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Decoration Gallery</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Details That Make <span class="italic text-[#D4AF7A]">The Difference</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">Florals, lighting, linens, and every exquisite finishing touch.</p>
@@ -816,32 +903,32 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-6xl mx-auto">
 
         <div class="decor-tile">
-          <img src="assets/ga.jpg" alt="Floral arrangement">
+          <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=800&q=80" alt="Floral arrangement">
           <div class="decor-label">Floral Design</div>
         </div>
 
         <div class="decor-tile">
-          <img src="assets/ga1.jpg" alt="Table setting">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Table setting">
           <div class="decor-label">Table Settings</div>
         </div>
 
         <div class="decor-tile">
-          <img src="assets/ga2.jpg" alt="Lighting">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="Lighting">
           <div class="decor-label">Lighting Design</div>
         </div>
 
         <div class="decor-tile">
-          <img src="assets/ga3.jpg" alt="Balloons">
+          <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80" alt="Balloons">
           <div class="decor-label">Balloon Art</div>
         </div>
 
         <div class="decor-tile">
-          <img src="assets/ga4.jpg" alt="Wedding details">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Wedding ceremony decor">
           <div class="decor-label">Ceremony Decor</div>
         </div>
 
         <div class="decor-tile">
-          <img src="assets/ga5.jpg" alt="Fairy lights">
+          <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" alt="Ambient fairy lights">
           <div class="decor-label">Ambient Lights</div>
         </div>
 
@@ -851,7 +938,7 @@
         </div>
 
         <div class="decor-tile">
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80" alt="Cake display">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80" alt="Cake display">
           <div class="decor-label">Cake Display</div>
         </div>
       </div>
@@ -865,7 +952,7 @@
           <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div class="text-center lg:text-left">
               <span class="text-[#F5E6D0] text-[10px] font-bold uppercase tracking-widest">Inspired by What You See?</span>
-              <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-bold mt-2 mb-3">
+              <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-semibold mt-2 mb-3">
                 Let's Create Your Story
               </h3>
               <p class="text-white/85 text-sm sm:text-base max-w-lg">
@@ -906,7 +993,7 @@
       <div class="mb-12 pb-10 border-b footer-divider">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="text-center md:text-left">
-            <h3 class="font-display text-2xl sm:text-3xl font-bold footer-heading mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold footer-heading mb-1">
               Let's Plan Something <span class="italic text-[#D4AF7A]">Unforgettable</span>
             </h3>
             <p class="text-sm footer-text">Subscribe for seasonal offers, venue news, and event inspiration.</p>
@@ -945,7 +1032,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="halls.html" class="footer-link">Our Halls</a></li>
             <li><a href="packages.html" class="footer-link">Packages</a></li>
@@ -955,7 +1042,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="#" class="footer-link">Weddings</a></li>
             <li><a href="#" class="footer-link">Corporate</a></li>
@@ -965,7 +1052,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
           <ul class="space-y-3 text-sm">
             <li class="flex items-start gap-3 footer-text">
               <i class="fas fa-map-marker-alt mt-1 text-[#D4AF7A]"></i>

@@ -24,6 +24,12 @@
               'blush-light': '#FCE8F0',
               bg: '#FFFFFF',
               'bg-soft': '#FDF8FA',
+              'dark-bg': '#120A10',
+              'dark-card': '#1A0F18',
+              'dark-surface': '#201018',
+              'dark-border': '#4A2540',
+              'dark-text': '#F5EAF0',
+              'dark-muted': '#C9A0B8',
             }
           },
           fontFamily: {
@@ -51,7 +57,9 @@
   <style>
     h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
     p { font-weight: 400; }
-    p strong, p b { font-weight: 550 !important; }
+    p strong, p b, p.font-bold, p.font-semibold { font-weight: 550 !important; }
+    p.font-medium { font-weight: 500 !important; }
+    p.font-light, p.font-thin, p.font-extralight { font-weight: 400 !important; }
     .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
     body {
@@ -264,7 +272,7 @@
       flex-direction: column;
     }
     .magazine-card > .relative { flex: 1; display: flex; flex-direction: column; }
-    .magazine-card > .relative > a:last-child { margin-top: auto; align-self: flex-start; }
+    .magazine-card > .relative > a:last-child { margin-top: auto; }
     .dark .magazine-card {
       background: #201018;
       border-color: #4A2540;
@@ -503,6 +511,7 @@
           <a href="halls.html" class="nav-link">Halls</a>
           <a href="packages.html" class="nav-link active">Packages</a>
           <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="contact.html" class="nav-link">Contact</a>
 
           <div class="dropdown-wrapper">
             <button class="nav-link flex items-center">
@@ -524,11 +533,8 @@
             <svg class="w-4 h-4 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             <svg class="w-4 h-4 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </button>
-          <a href="login.html" class="hidden xl:inline-flex px-5 py-2.5 rounded-full border-2 border-[#4A1D3D] dark:border-[#F5E6D0] text-[#4A1D3D] dark:text-[#F5E6D0] text-xs font-bold hover:bg-[#4A1D3D] hover:text-white dark:hover:bg-[#F5E6D0] dark:hover:text-[#2D1A28] transition">
-            Login
-          </a>
-          <a href="signup.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
-            <i class="fas fa-user-plus mr-1.5"></i> Sign Up
+          <a href="login.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
+            <i class="fas fa-user mr-1.5"></i> Login
           </a>
           <button id="mobile-menu-open" class="xl:hidden icon-btn" aria-label="Open menu">
             <i class="fas fa-bars text-base"></i>
@@ -570,6 +576,7 @@
           <a href="halls.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Halls</a>
           <a href="packages.html" class="py-3 px-3 rounded-xl font-semibold text-[#D4AF7A] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">Packages</a>
           <a href="gallery.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Gallery</a>
+          <a href="contact.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Contact</a>
 
           <div>
             <button class="w-full flex justify-between items-center py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition" id="mobile-dashboard-toggle">
@@ -583,10 +590,9 @@
           </div>
         </nav>
 
-        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540] flex flex-col gap-3">
-          <a href="login.html" class="w-full text-center border-2 border-[#F0E4EC] dark:border-[#4A2540] rounded-xl py-3 font-bold text-sm text-[#4A1D3D] dark:text-white hover:border-[#D4AF7A] hover:text-[#D4AF7A] transition">Login</a>
-          <a href="signup.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
-            <i class="fas fa-user-plus mr-2"></i> Sign Up
+        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+          <a href="login.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
+            <i class="fas fa-user mr-2"></i> Login
           </a>
         </div>
 
@@ -608,7 +614,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        SECTION 1 · HERO — UNIQUE RIBBON DESIGN
   ═══════════════════════════════════════════════════════════ -->
-  <section class="hero-packages relative min-h-[85vh] sm:min-h-[80vh] flex items-center overflow-hidden">
+  <section class="hero-packages relative min-h-[88vh] sm:min-h-[85vh] flex items-center overflow-hidden">
     <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
 
       <!-- Top ribbon strip -->
@@ -619,12 +625,12 @@
       </div>
 
       <div class="max-w-4xl mx-auto text-center animate-slide-up">
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-bold">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-semibold">
           Packages Built <br>
           <span class="italic text-[#F5E6D0]">Around You.</span>
         </h1>
 
-        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
           Whether you're planning a small gathering or a grand celebration, every Eventora package includes venue, décor, catering, and a dedicated coordinator.
         </p>
 
@@ -702,7 +708,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Basic Package</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Simple, Elegant, <span class="italic text-[#D4AF7A]">Complete</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -721,7 +727,7 @@
 
             <div class="relative z-10">
               <span class="inline-block text-[#F5E6D0] text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Entry Tier</span>
-              <h3 class="font-display text-3xl sm:text-4xl text-white font-bold mb-3">Basic</h3>
+              <h3 class="font-display text-3xl sm:text-4xl text-white font-semibold mb-3">Basic</h3>
               <p class="text-white/70 text-sm leading-relaxed mb-6">Perfect for showers, small birthdays, and intimate dinners up to 60 guests.</p>
 
               <div class="flex items-end gap-2 mb-8">
@@ -737,7 +743,7 @@
 
           <!-- Right: Feature checklist -->
           <div class="lg:col-span-3 p-8 sm:p-10">
-            <h4 class="font-display text-lg font-bold text-[#2D1A28] dark:text-white mb-6 flex items-center gap-3">
+            <h4 class="font-display text-lg font-semibold text-[#2D1A28] dark:text-white mb-6 flex items-center gap-3">
               <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">01</span>
               What's Included
             </h4>
@@ -746,42 +752,42 @@
               <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
                 <i class="fas fa-check-circle text-[#D4AF7A] mt-0.5"></i>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">3-Hour Hall Rental</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">3-Hour Hall Rental</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Flexible morning/evening</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
                 <i class="fas fa-check-circle text-[#D4AF7A] mt-0.5"></i>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Basic Décor &amp; Linens</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Basic Décor &amp; Linens</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Ivory table settings</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
                 <i class="fas fa-check-circle text-[#D4AF7A] mt-0.5"></i>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Buffet Menu (60 Guests)</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Buffet Menu (60 Guests)</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">3 mains, 2 sides, 1 dessert</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
                 <i class="fas fa-check-circle text-[#D4AF7A] mt-0.5"></i>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Background Music</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Background Music</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Soft playlist system</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
                 <i class="fas fa-check-circle text-[#D4AF7A] mt-0.5"></i>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">Tables &amp; Chairs</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">Tables &amp; Chairs</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Standard banquet setup</p>
                 </div>
               </div>
               <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] transition">
                 <i class="fas fa-check-circle text-[#D4AF7A] mt-0.5"></i>
                 <div>
-                  <p class="font-bold text-sm text-[#2D1A28] dark:text-white">On-Site Coordinator</p>
+                  <p class="font-medium text-sm text-[#2D1A28] dark:text-white">On-Site Coordinator</p>
                   <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8]">Day-of support</p>
                 </div>
               </div>
@@ -806,7 +812,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Premium Package</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           The <span class="italic text-[#D4AF7A]">Signature</span> Experience
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -829,7 +835,7 @@
                 <span class="text-[#F5E6D0] text-[10px] font-bold uppercase tracking-widest">Most Popular</span>
               </div>
 
-              <h3 class="font-display text-4xl sm:text-5xl text-white font-bold mb-4">Signature</h3>
+              <h3 class="font-display text-4xl sm:text-5xl text-white font-semibold mb-4">Signature</h3>
               <p class="text-white/70 text-sm leading-relaxed mb-8">Perfect for weddings, milestone birthdays, and corporate galas up to 200 guests.</p>
 
               <div class="flex items-end gap-2 mb-8">
@@ -851,7 +857,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">5-Hour Hall Rental</p>
+                    <p class="font-medium text-sm text-white">5-Hour Hall Rental</p>
                     <p class="text-xs text-white/60">Premium hall of your choice</p>
                   </div>
                 </div>
@@ -861,7 +867,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">Full Themed Décor</p>
+                    <p class="font-medium text-sm text-white">Full Themed Décor</p>
                     <p class="text-xs text-white/60">Custom color palette &amp; florals</p>
                   </div>
                 </div>
@@ -871,7 +877,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">Plated Dinner for 200</p>
+                    <p class="font-medium text-sm text-white">Plated Dinner for 200</p>
                     <p class="text-xs text-white/60">4-course menu, chef's selection</p>
                   </div>
                 </div>
@@ -881,7 +887,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">DJ + Full AV Package</p>
+                    <p class="font-medium text-sm text-white">DJ + Full AV Package</p>
                     <p class="text-xs text-white/60">Sound, lighting, MC service</p>
                   </div>
                 </div>
@@ -891,7 +897,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">Bridal Suite Access</p>
+                    <p class="font-medium text-sm text-white">Bridal Suite Access</p>
                     <p class="text-xs text-white/60">Private getting-ready room</p>
                   </div>
                 </div>
@@ -901,7 +907,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">Valet Parking</p>
+                    <p class="font-medium text-sm text-white">Valet Parking</p>
                     <p class="text-xs text-white/60">Up to 120 vehicles</p>
                   </div>
                 </div>
@@ -911,7 +917,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">Custom Cake</p>
+                    <p class="font-medium text-sm text-white">Custom Cake</p>
                     <p class="text-xs text-white/60">3-tier celebration cake</p>
                   </div>
                 </div>
@@ -921,7 +927,7 @@
                     <i class="fas fa-check text-white text-xs"></i>
                   </div>
                   <div>
-                    <p class="font-bold text-sm text-white">Event Photographer</p>
+                    <p class="font-medium text-sm text-white">Event Photographer</p>
                     <p class="text-xs text-white/60">4-hour coverage included</p>
                   </div>
                 </div>
@@ -948,7 +954,7 @@
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
         <div class="max-w-2xl">
           <span class="text-[#B8346B] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Wedding Packages</span>
-          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
             Three Ways to Say <span class="italic text-[#B8346B]">"I Do"</span>
           </h2>
           <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -967,7 +973,7 @@
           <span class="magazine-num absolute top-4 right-6 text-6xl sm:text-7xl opacity-40 pointer-events-none">01</span>
           <div class="relative z-10">
             <span class="inline-block text-[#D4AF7A] text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Intimate</span>
-            <h3 class="font-display text-2xl font-bold text-[#2D1A28] dark:text-white mb-4">The Garden Vow</h3>
+            <h3 class="font-display text-2xl font-semibold text-[#2D1A28] dark:text-white mb-4">The Garden Vow</h3>
             <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-6">An intimate ceremony on our garden terrace with a champagne reception and small dinner for up to 60 guests.</p>
 
             <div class="flex items-end gap-2 mb-6">
@@ -983,8 +989,8 @@
               <li class="flex items-start gap-2 text-sm"><i class="fas fa-check text-[#D4AF7A] mt-1 text-xs"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">2-tier wedding cake</span></li>
             </ul>
 
-            <a href="contact.html" class="text-xs font-bold text-[#4A1D3D] dark:text-white hover:text-[#B8346B] transition inline-flex items-center gap-1">
-              Reserve This Bundle <i class="fas fa-arrow-right text-[10px]"></i>
+            <a href="contact.html" class="btn-outline-venue w-full text-center py-3 rounded-full font-bold text-xs inline-block">
+              Reserve This Bundle <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
             </a>
           </div>
         </div>
@@ -997,7 +1003,7 @@
               <span class="inline-block text-[#B8346B] text-[10px] font-bold uppercase tracking-[0.3em]">Signature Wedding</span>
               <span class="bg-[#B8346B] text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Popular</span>
             </div>
-            <h3 class="font-display text-2xl font-bold text-[#2D1A28] dark:text-white mb-4">The Grand Union</h3>
+            <h3 class="font-display text-2xl font-semibold text-[#2D1A28] dark:text-white mb-4">The Grand Union</h3>
             <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-6">Our most-booked wedding bundle — full-day access to the Crystal Ballroom with ceremony, reception, and bridal suite.</p>
 
             <div class="flex items-end gap-2 mb-6">
@@ -1025,7 +1031,7 @@
           <span class="magazine-num absolute top-4 right-6 text-6xl sm:text-7xl opacity-40 pointer-events-none">03</span>
           <div class="relative z-10">
             <span class="inline-block text-[#D4AF7A] text-[10px] font-bold uppercase tracking-[0.3em] mb-4">Grand Luxury</span>
-            <h3 class="font-display text-2xl font-bold text-[#2D1A28] dark:text-white mb-4">The Royal Celebration</h3>
+            <h3 class="font-display text-2xl font-semibold text-[#2D1A28] dark:text-white mb-4">The Royal Celebration</h3>
             <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-6">A no-limits wedding experience — full venue buyout, custom cuisine, live entertainment, and a dedicated planning team.</p>
 
             <div class="flex items-end gap-2 mb-6">
@@ -1041,8 +1047,8 @@
               <li class="flex items-start gap-2 text-sm"><i class="fas fa-check text-[#D4AF7A] mt-1 text-xs"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Dedicated planner team</span></li>
             </ul>
 
-            <a href="contact.html" class="text-xs font-bold text-[#4A1D3D] dark:text-white hover:text-[#B8346B] transition inline-flex items-center gap-1">
-              Reserve This Bundle <i class="fas fa-arrow-right text-[10px]"></i>
+            <a href="contact.html" class="btn-outline-venue w-full text-center py-3 rounded-full font-bold text-xs inline-block">
+              Reserve This Bundle <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
             </a>
           </div>
         </div>
@@ -1059,7 +1065,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Catering &amp; Decoration Add-ons</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Make It <span class="italic text-[#D4AF7A]">Yours</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -1070,90 +1076,98 @@
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto">
 
         <!-- Add-on 1 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
-            <i class="fas fa-utensils text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80" alt="Plated Dinner Upgrade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Plated Dinner Upgrade</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">Upgrade buffet to a 4-course plated service</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$18/person</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Plated Dinner Upgrade</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">Upgrade buffet to a 4-course plated service</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$18/person</p>
         </div>
 
         <!-- Add-on 2 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#B8346B,#6B2E5A);">
-            <i class="fas fa-wine-glass-alt text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=80" alt="Open Bar Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Open Bar Package</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">Premium spirits, wine, beer &amp; signature cocktails</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$32/person</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Open Bar Package</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">Premium spirits, wine, beer &amp; signature cocktails</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$32/person</p>
         </div>
 
         <!-- Add-on 3 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#6B2E5A,#4A1D3D);">
-            <i class="fas fa-leaf text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600&q=80" alt="Premium Floral" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Premium Floral</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">Imported seasonal flowers &amp; centerpieces</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$450</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Premium Floral</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">Imported seasonal flowers &amp; centerpieces</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$450</p>
         </div>
 
         <!-- Add-on 4 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#D4AF7A,#B8346B);">
-            <i class="fas fa-lightbulb text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600&q=80" alt="Custom Lighting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Custom Lighting</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">Ambient uplighting, monogram projection</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$380</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Custom Lighting</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">Ambient uplighting, monogram projection</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$380</p>
         </div>
 
         <!-- Add-on 5 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#4A1D3D,#B8346B);">
-            <i class="fas fa-camera-retro text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Photography</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">Professional photographer, 4-hour session</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$550</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Photography</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">Professional photographer, 4-hour session</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$550</p>
         </div>
 
         <!-- Add-on 6 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#6B2E5A,#D4AF7A);">
-            <i class="fas fa-video text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80" alt="Videography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Videography</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">Highlight film + full ceremony edit</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$680</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Videography</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">Highlight film + full ceremony edit</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$680</p>
         </div>
 
         <!-- Add-on 7 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#B8346B,#4A1D3D);">
-            <i class="fas fa-music text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=600&q=80" alt="Live Band" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Live Band</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">3-piece jazz or pop ensemble, 3 hours</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$890</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Live Band</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">3-piece jazz or pop ensemble, 3 hours</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$890</p>
         </div>
 
         <!-- Add-on 8 -->
-        <div class="addon-tile p-6 text-center">
-          <div class="addon-icon-ring mx-auto mb-4" style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
-            <i class="fas fa-cake-candles text-white text-xl"></i>
+        <div class="addon-tile p-4 sm:p-5 text-center flex flex-col group overflow-hidden">
+          <div class="w-full h-32 sm:h-36 rounded-2xl overflow-hidden mb-4 relative flex-shrink-0 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600&q=80" alt="Designer Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
-          <h4 class="font-display font-bold text-sm text-[#2D1A28] dark:text-white mb-1">Designer Cake</h4>
-          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3">Custom 3-tier cake with monogram</p>
-          <p class="font-display text-sm font-bold text-[#D4AF7A]">+$320</p>
+          <h4 class="font-display font-semibold text-sm text-[#2D1A28] dark:text-white mb-1.5 min-h-[2.5rem] flex items-center justify-center">Designer Cake</h4>
+          <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] mb-3 leading-relaxed flex-grow">Custom 3-tier cake with monogram</p>
+          <p class="font-display text-sm font-medium text-[#D4AF7A] mt-auto">+$320</p>
         </div>
       </div>
 
       <!-- Add-on help banner -->
       <div class="mt-12 max-w-4xl mx-auto rounded-3xl p-6 sm:p-8 border-2 border-dashed border-[#D4AF7A]/50 text-center">
         <i class="fas fa-wand-magic-sparkles text-[#D4AF7A] text-2xl mb-3"></i>
-        <h4 class="font-display text-lg font-bold text-[#2D1A28] dark:text-white mb-2">Want Something Completely Custom?</h4>
+        <h4 class="font-display text-lg font-semibold text-[#2D1A28] dark:text-white mb-2">Want Something Completely Custom?</h4>
         <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] mb-4 max-w-lg mx-auto">Our design team can create bespoke add-ons tailored to your vision — from fireworks to live aerialists.</p>
         <a href="contact.html" class="btn-outline-venue px-6 py-3 rounded-full font-bold text-xs inline-block">
           <i class="fas fa-comments mr-2"></i> Request Custom Quote
@@ -1171,7 +1185,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Compare Packages</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Side-by-Side <span class="italic text-[#D4AF7A]">Comparison</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -1313,7 +1327,7 @@
           <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div class="text-center lg:text-left">
               <span class="text-[#F5E6D0] text-[10px] font-bold uppercase tracking-widest">Still Deciding?</span>
-              <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-bold mt-2 mb-3">
+              <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-semibold mt-2 mb-3">
                 Let's Build a Custom Package
               </h3>
               <p class="text-white/85 text-sm sm:text-base max-w-lg">
@@ -1346,7 +1360,7 @@
       <div class="mb-12 pb-10 border-b footer-divider">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="text-center md:text-left">
-            <h3 class="font-display text-2xl sm:text-3xl font-bold footer-heading mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold footer-heading mb-1">
               Let's Plan Something <span class="italic text-[#D4AF7A]">Unforgettable</span>
             </h3>
             <p class="text-sm footer-text">Subscribe for seasonal offers, venue news, and event inspiration.</p>
@@ -1385,7 +1399,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="halls.html" class="footer-link">Our Halls</a></li>
             <li><a href="packages.html" class="footer-link">Packages</a></li>
@@ -1395,7 +1409,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="#" class="footer-link">Weddings</a></li>
             <li><a href="#" class="footer-link">Corporate</a></li>
@@ -1405,7 +1419,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
           <ul class="space-y-3 text-sm">
             <li class="flex items-start gap-3 footer-text">
               <i class="fas fa-map-marker-alt mt-1 text-[#D4AF7A]"></i>

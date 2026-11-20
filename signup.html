@@ -34,6 +34,12 @@
                             'blush-light': '#FCE8F0',
                             bg: '#FFFFFF',
                             'bg-soft': '#FDF8FA',
+                            'dark-bg': '#120A10',
+                            'dark-card': '#1A0F18',
+                            'dark-surface': '#201018',
+                            'dark-border': '#4A2540',
+                            'dark-text': '#F5EAF0',
+                            'dark-muted': '#C9A0B8',
                         }
                     },
                     fontFamily: {
@@ -57,12 +63,11 @@
             color: #F5EAF0;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-weight: 600 !important;
-        }
-        p { font-weight: 400; }
-        p strong, p b { font-weight: 550 !important; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
+    p { font-weight: 400; }
+    p strong, p b, p.font-bold, p.font-semibold { font-weight: 550 !important; }
+    p.font-medium { font-weight: 500 !important; }
+    p.font-light, p.font-thin, p.font-extralight { font-weight: 400 !important; }
 
         body::-webkit-scrollbar { width: 8px; }
         body::-webkit-scrollbar-track { background: #FDF8FA; border-radius: 10px; }
@@ -374,8 +379,8 @@
                         </span>
                     </div>
                 </a>
-                <h2 class="text-xl sm:text-2xl font-display font-bold text-[#2D1A28] dark:text-[#F5EAF0] mb-0.5">Begin Your Event Journey</h2>
-                <p class="text-xs text-[#9B7A8F] dark:text-[#C9A0B8] font-light">Get 10% off your first booking + member-only venue perks</p>
+                <h2 class="text-xl sm:text-2xl font-display font-semibold text-[#2D1A28] dark:text-[#F5EAF0] mb-0.5">Begin Your Event Journey</h2>
+                <p class="text-xs text-[#9B7A8F] dark:text-[#C9A0B8] font-normal">Get 10% off your first booking + member-only venue perks</p>
             </div>
 
             <!-- Social login row -->
@@ -481,13 +486,25 @@
                 const container = document.getElementById('toastContainer');
                 if (!container) return;
                 const toast = document.createElement('div');
-                let bgColor = 'bg-[#6B2E5A]';
-                let icon = '<i class="fas fa-check-circle text-white text-sm"></i>';
-                if (type === 'error') { bgColor = 'bg-red-500'; icon = '<i class="fas fa-times-circle text-white text-sm"></i>'; }
-                else if (type === 'warning') { bgColor = 'bg-amber-500'; icon = '<i class="fas fa-exclamation-triangle text-white text-sm"></i>'; }
-                else if (type === 'info') { bgColor = '#4A1D3D'; icon = '<i class="fas fa-info-circle text-white text-sm"></i>'; }
-                toast.className = `toast-animation mb-2 px-5 py-3 rounded-xl shadow-lg text-xs sm:text-sm font-medium flex items-center gap-2 pointer-events-auto text-white max-w-full`;
+                let bgColor = '#6B2E5A';
+                let borderColor = 'rgba(212, 175, 122, 0.3)';
+                let icon = '<i class="fas fa-check-circle text-[#D4AF7A] text-sm"></i>';
+                if (type === 'error') {
+                    bgColor = '#B8346B';
+                    borderColor = 'rgba(255, 255, 255, 0.2)';
+                    icon = '<i class="fas fa-times-circle text-white text-sm"></i>';
+                } else if (type === 'warning') {
+                    bgColor = '#B8945A';
+                    borderColor = 'rgba(255, 255, 255, 0.2)';
+                    icon = '<i class="fas fa-exclamation-triangle text-white text-sm"></i>';
+                } else if (type === 'info') {
+                    bgColor = '#4A1D3D';
+                    borderColor = 'rgba(212, 175, 122, 0.3)';
+                    icon = '<i class="fas fa-info-circle text-[#D4AF7A] text-sm"></i>';
+                }
+                toast.className = `toast-animation mb-2 px-5 py-3 rounded-xl shadow-xl text-xs sm:text-sm font-medium flex items-center gap-2 pointer-events-auto text-[#F5EAF0] max-w-full border backdrop-blur-md`;
                 toast.style.backgroundColor = bgColor;
+                toast.style.borderColor = borderColor;
                 toast.innerHTML = `${icon} <span class="break-words">${message}</span>`;
                 container.appendChild(toast);
                 setTimeout(() => { if (toast && toast.remove) toast.remove(); }, 2600);

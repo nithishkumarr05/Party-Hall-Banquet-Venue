@@ -26,6 +26,12 @@
               'blush-light': '#FCE8F0',
               bg: '#FFFFFF',
               'bg-soft': '#FDF8FA',
+              'dark-bg': '#120A10',
+              'dark-card': '#1A0F18',
+              'dark-surface': '#201018',
+              'dark-border': '#4A2540',
+              'dark-text': '#F5EAF0',
+              'dark-muted': '#C9A0B8',
             }
           },
           fontFamily: {
@@ -55,7 +61,9 @@
   <style>
     h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
     p { font-weight: 400; }
-    p strong, p b { font-weight: 550 !important; }
+    p strong, p b, p.font-bold, p.font-semibold { font-weight: 550 !important; }
+    p.font-medium { font-weight: 500 !important; }
+    p.font-light, p.font-thin, p.font-extralight { font-weight: 400 !important; }
     .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
     body {
@@ -234,7 +242,7 @@
     .hero-banquet {
       background-image:
         linear-gradient(135deg, rgba(45,26,40,0.90) 0%, rgba(74,29,61,0.72) 50%, rgba(184,52,107,0.55) 100%),
-        url('');
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -386,6 +394,7 @@
           <a href="halls.html" class="nav-link">Halls</a>
           <a href="packages.html" class="nav-link">Packages</a>
           <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="contact.html" class="nav-link">Contact</a>
 
           <div class="dropdown-wrapper">
             <button class="nav-link flex items-center">
@@ -407,11 +416,8 @@
             <svg class="w-4 h-4 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             <svg class="w-4 h-4 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </button>
-          <a href="login.html" class="hidden xl:inline-flex px-5 py-2.5 rounded-full border-2 border-[#4A1D3D] dark:border-[#F5E6D0] text-[#4A1D3D] dark:text-[#F5E6D0] text-xs font-bold hover:bg-[#4A1D3D] hover:text-white dark:hover:bg-[#F5E6D0] dark:hover:text-[#2D1A28] transition">
-            Login
-          </a>
-          <a href="signup.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
-            <i class="fas fa-user-plus mr-1.5"></i> Sign Up
+          <a href="login.html" class="hidden xl:inline-flex btn-gold px-5 py-2.5 rounded-full text-xs">
+            <i class="fas fa-user mr-1.5"></i> Login
           </a>
           <button id="mobile-menu-open" class="xl:hidden icon-btn" aria-label="Open menu">
             <i class="fas fa-bars text-base"></i>
@@ -453,6 +459,7 @@
           <a href="halls.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Halls</a>
           <a href="packages.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Packages</a>
           <a href="gallery.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Gallery</a>
+          <a href="contact.html" class="py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition">Contact</a>
 
           <div>
             <button class="w-full flex justify-between items-center py-3 px-3 rounded-xl font-medium text-[#2D1A28] dark:text-[#F5EAF0] hover:bg-[#FDF8FA] dark:hover:bg-[#2D1A28] hover:text-[#D4AF7A] transition" id="mobile-dashboard-toggle">
@@ -466,10 +473,9 @@
           </div>
         </nav>
 
-        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540] flex flex-col gap-3">
-          <a href="login.html" class="w-full text-center border-2 border-[#F0E4EC] dark:border-[#4A2540] rounded-xl py-3 font-bold text-sm text-[#4A1D3D] dark:text-white hover:border-[#D4AF7A] hover:text-[#D4AF7A] transition">Login</a>
-          <a href="signup.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
-            <i class="fas fa-user-plus mr-2"></i> Sign Up
+        <div class="mt-6 pt-6 border-t border-[#F0E4EC] dark:border-[#4A2540]">
+          <a href="login.html" class="block w-full btn-gold text-center py-3.5 rounded-xl font-bold text-sm">
+            <i class="fas fa-user mr-2"></i> Login
           </a>
         </div>
 
@@ -491,61 +497,142 @@
   <!-- ═══════════════════════════════════════════════════════════
        SECTION 1 · HERO — BANQUET VENUE
   ═══════════════════════════════════════════════════════════ -->
-  <section class="hero-banquet relative min-h-[95vh] sm:min-h-[90vh] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-black/25 dark:bg-black/45"></div>
+  <section class="hero-banquet relative min-h-[88vh] sm:min-h-[85vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0 bg-black/35 dark:bg-black/55"></div>
 
     <!-- Floating decorative elements -->
-    <div class="absolute top-20 left-10 w-20 h-20 rounded-full border border-[#D4AF7A]/30 animate-float-slow hidden lg:block"></div>
-    <div class="absolute bottom-32 right-16 w-32 h-32 rounded-full border border-[#D4AF7A]/20 animate-float-slow hidden lg:block" style="animation-delay:2s;"></div>
+    <div class="absolute top-24 left-8 w-24 h-24 rounded-full border border-[#D4AF7A]/25 animate-float-slow hidden lg:block"></div>
+    <div class="absolute bottom-20 right-12 w-40 h-40 rounded-full border border-[#D4AF7A]/20 animate-float-slow hidden lg:block" style="animation-delay:2s;"></div>
 
-    <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
-      <div class="max-w-4xl mx-auto text-center animate-slide-up">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-[#D4AF7A]/40 px-4 py-2 rounded-full mb-6">
-          <span class="w-2 h-2 rounded-full bg-[#D4AF7A] animate-pulse"></span>
-          <span class="text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase">Banquet Venue · Since 2012</span>
+    <div class="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 w-full">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        <!-- Left Column: Editorial Headline & Value Proposition -->
+        <div class="lg:col-span-7 text-left animate-slide-up">
+          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-[#D4AF7A]/40 px-4 py-2 rounded-full mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#D4AF7A] animate-pulse"></span>
+            <span class="text-white text-[10px] sm:text-xs font-semibold tracking-widest uppercase">Premier Banquet Destination · Since 2012</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl text-white leading-[1.08] sm:leading-[1.02] tracking-tight mb-6 font-semibold">
+            Crafting <span class="italic text-[#F5E6D0]">Banquets</span> <br class="hidden sm:inline">
+            Beyond the <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF7A] to-[#F5E6D0]">Ordinary.</span>
+          </h1>
+
+          <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-xl leading-relaxed mb-8 font-normal">
+            A grand banquet sanctuary crafted for life's most precious celebrations — from breathtaking wedding receptions to landmark corporate galas. Soaring chandeliers, bespoke culinary artistry, and flawless execution.
+          </p>
+
+          <div class="flex flex-wrap gap-4 items-center mb-10">
+            <a href="halls.html" class="btn-gold px-8 py-4 rounded-full text-sm sm:text-base font-bold shadow-xl shadow-[#D4AF7A]/20 inline-flex items-center gap-2">
+              <i class="fas fa-door-open"></i> Explore The Venue
+            </a>
+            <a href="contact.html" class="px-8 py-4 rounded-full border-2 border-white/60 text-white font-semibold text-sm sm:text-base hover:bg-white/10 hover:border-[#F5E6D0] transition backdrop-blur-sm inline-flex items-center gap-2">
+              <i class="fas fa-calendar-check text-[#D4AF7A]"></i> Book a Private Tour
+            </a>
+          </div>
+
+          <!-- Feature stat pills -->
+          <div class="grid grid-cols-3 gap-3 max-w-lg">
+            <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-3 sm:p-3.5 text-center">
+              <p class="font-display text-2xl sm:text-3xl text-[#F5E6D0] font-medium leading-tight">8</p>
+              <p class="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/80 mt-1">Banquet Halls</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-3 sm:p-3.5 text-center">
+              <p class="font-display text-2xl sm:text-3xl text-[#F5E6D0] font-medium leading-tight">450<span class="text-[#D4AF7A]">+</span></p>
+              <p class="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/80 mt-1">Guest Capacity</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-3 sm:p-3.5 text-center">
+              <p class="font-display text-2xl sm:text-3xl text-[#F5E6D0] font-medium leading-tight">15<span class="text-[#D4AF7A]">+</span></p>
+              <p class="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/80 mt-1">Years of Service</p>
+            </div>
+          </div>
         </div>
 
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] sm:leading-[0.95] tracking-tight mb-6 font-bold">
-          The Ultimate <br>
-          <span class="italic text-[#F5E6D0]">Banquet</span> <br>
-          Experience.
-        </h1>
+        <!-- Right Column: Interactive Glassmorphic Venue Showcase Card -->
+        <div class="lg:col-span-5 relative animate-fade-in mt-6 lg:mt-0">
+          <!-- Ambient gold aura glow -->
+          <div class="absolute -inset-2 bg-gradient-to-r from-[#D4AF7A]/25 via-[#B8346B]/20 to-[#6B2E5A]/30 rounded-3xl blur-2xl pointer-events-none"></div>
 
-        <p class="text-white/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-light">
-          A grand banquet venue crafted for life's most precious moments — from dream weddings to landmark corporate galas. Elegant halls, world-class cuisine, and a team that delivers perfection.
-        </p>
+          <!-- Main Glass Card -->
+          <div class="relative rounded-3xl bg-white/10 dark:bg-black/50 backdrop-blur-xl border border-white/25 p-5 sm:p-6 shadow-2xl">
+            
+            <!-- Featured Hall Image with Badge -->
+            <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden mb-5 group">
+              <img src="assets/home1.jpg" alt="Eventora Imperial Banquet Ballroom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              
+              <div class="absolute top-3.5 left-3.5 flex items-center gap-2">
+                <span class="bg-[#4A1D3D]/90 backdrop-blur-md text-[#D4AF7A] text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-[#D4AF7A]/40 shadow-sm">
+                  Featured Space
+                </span>
+                <span class="bg-white/20 backdrop-blur-md text-white text-[10px] font-semibold px-2.5 py-1.5 rounded-full border border-white/20">
+                  <i class="fas fa-star text-[#D4AF7A] mr-1"></i> 4.9 Rating
+                </span>
+              </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <a href="halls.html" class="btn-gold px-8 py-4 rounded-full text-sm sm:text-base font-bold text-center">
-            <i class="fas fa-door-open mr-2"></i> Explore The Venue
-          </a>
-          <a href="contact.html" class="px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold text-sm sm:text-base hover:bg-white/10 hover:border-[#F5E6D0] transition text-center">
-            <i class="fas fa-play-circle mr-2"></i> Take a Virtual Tour
-          </a>
+              <div class="absolute bottom-3.5 left-4 right-4 flex items-end justify-between text-white">
+                <div>
+                  <h3 class="font-display font-semibold text-lg sm:text-xl text-white">The Imperial Ballroom</h3>
+                  <p class="text-xs text-white/80 flex items-center gap-2 mt-0.5">
+                    <span><i class="fas fa-users text-[#D4AF7A] mr-1"></i> Up to 450 Guests</span>
+                    <span>•</span>
+                    <span><i class="fas fa-expand text-[#D4AF7A] mr-1"></i> 5,200 sq. ft.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Highlights Micro-Grid -->
+            <div class="grid grid-cols-3 gap-2.5 mb-4">
+              <div class="bg-white/10 dark:bg-white/5 rounded-xl p-2.5 sm:p-3 border border-white/15 text-center">
+                <i class="fas fa-utensils text-[#D4AF7A] text-sm mb-1.5 block"></i>
+                <p class="text-[11px] font-semibold text-white">Catering</p>
+                <p class="text-[9px] text-white/70">Bespoke Menus</p>
+              </div>
+              <div class="bg-white/10 dark:bg-white/5 rounded-xl p-2.5 sm:p-3 border border-white/15 text-center">
+                <i class="fas fa-music text-[#D4AF7A] text-sm mb-1.5 block"></i>
+                <p class="text-[11px] font-semibold text-white">Sound &amp; Light</p>
+                <p class="text-[9px] text-white/70">Concert-Grade</p>
+              </div>
+              <div class="bg-white/10 dark:bg-white/5 rounded-xl p-2.5 sm:p-3 border border-white/15 text-center">
+                <i class="fas fa-car text-[#D4AF7A] text-sm mb-1.5 block"></i>
+                <p class="text-[11px] font-semibold text-white">Valet Service</p>
+                <p class="text-[9px] text-white/70">Complimentary</p>
+              </div>
+            </div>
+
+            <!-- Card Bottom Bar -->
+            <div class="pt-3.5 border-t border-white/15 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-white/85 text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Accepting 2026–2027 Bookings</span>
+              </div>
+              <a href="packages.html" class="text-xs font-bold text-[#F5E6D0] hover:text-[#D4AF7A] transition inline-flex items-center gap-1.5">
+                View Packages <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Floating Award Badge -->
+          <div class="absolute -top-4 -right-2 sm:-right-4 bg-gradient-to-r from-[#D4AF7A] to-[#6B2E5A] text-white px-4 py-2.5 rounded-2xl shadow-2xl flex items-center gap-2.5 border border-white/30 hidden sm:flex">
+            <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-[#F5E6D0]">
+              <i class="fas fa-award text-sm"></i>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold leading-tight">Voted #1 Venue</p>
+              <p class="text-[9px] text-white/80 leading-tight">Luxury Hospitality 2025</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Quick stats -->
-        <div class="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
-          <div>
-            <p class="font-display text-3xl sm:text-4xl text-white font-bold">8</p>
-            <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/70 mt-1">Banquet Halls</p>
-          </div>
-          <div>
-            <p class="font-display text-3xl sm:text-4xl text-white font-bold">450<span class="text-[#D4AF7A]">+</span></p>
-            <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/70 mt-1">Max Capacity</p>
-          </div>
-          <div>
-            <p class="font-display text-3xl sm:text-4xl text-white font-bold">15<span class="text-[#D4AF7A]">+</span></p>
-            <p class="text-[9px] sm:text-xs uppercase tracking-widest text-white/70 mt-1">Years of Service</p>
-          </div>
-        </div>
       </div>
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center text-white/60 animate-bounce">
-      <span class="text-[10px] uppercase tracking-widest mb-1">Scroll</span>
-      <i class="fas fa-chevron-down text-sm"></i>
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center text-white/60 animate-bounce">
+      <span class="text-[9px] uppercase tracking-widest mb-0.5">Scroll</span>
+      <i class="fas fa-chevron-down text-xs"></i>
     </div>
   </section>
 
@@ -598,7 +685,7 @@
               <img src="assets/home2.jpg" alt="Table setting" class="w-full h-40 sm:h-48 object-cover">
             </div>
             <div class="rounded-3xl overflow-hidden shadow-xl">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1vxd2VI1o6vjsoIar3RLohqTCGl5w6lZJVDEM2ZiBfkW6G9QL5AGDJen8&s=10" alt="Event detail" class="w-full h-40 sm:h-48 object-cover">
+              <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80" alt="Event detail" class="w-full h-40 sm:h-48 object-cover">
             </div>
           </div>
 
@@ -609,7 +696,7 @@
         <!-- Right content -->
         <div class="order-1 lg:order-2">
           <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Celebrate Your Events</span>
-          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-6 font-bold leading-tight">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-6 font-semibold leading-tight">
             Where Every <span class="italic text-[#D4AF7A]">Occasion</span> Becomes a Memory
           </h2>
           <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base leading-relaxed mb-8">
@@ -623,7 +710,7 @@
                 <i class="fas fa-check text-white text-sm"></i>
               </div>
               <div>
-                <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">Tailored Setups</h4>
+                <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">Tailored Setups</h4>
                 <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8]">Custom layouts for banquets, cocktail hours, and ceremony seating.</p>
               </div>
             </div>
@@ -632,7 +719,7 @@
                 <i class="fas fa-utensils text-white text-sm"></i>
               </div>
               <div>
-                <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">Gourmet Catering</h4>
+                <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">Gourmet Catering</h4>
                 <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8]">Multi-course menus crafted by award-winning executive chefs.</p>
               </div>
             </div>
@@ -641,7 +728,7 @@
                 <i class="fas fa-users text-white text-sm"></i>
               </div>
               <div>
-                <h4 class="font-display font-bold text-base text-[#2D1A28] dark:text-white mb-1">Dedicated Coordinator</h4>
+                <h4 class="font-display font-semibold text-base text-[#2D1A28] dark:text-white mb-1">Dedicated Coordinator</h4>
                 <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8]">A personal event manager from first consultation to final farewell.</p>
               </div>
             </div>
@@ -667,7 +754,7 @@
           <i class="fas fa-ring text-[#B8346B] text-xs"></i>
           <span class="text-[#B8346B] text-[10px] sm:text-xs font-bold uppercase tracking-widest">Wedding Celebrations</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-2 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-2 mb-4 font-semibold">
           Say "I Do" in <span class="italic text-[#B8346B]">Pure Elegance</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -684,7 +771,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             <div class="absolute top-4 left-4 bg-[#B8346B] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">Most Popular</div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="font-display text-xl text-white font-bold mb-1">Ceremony &amp; Reception</h3>
+              <h3 class="font-display text-xl text-white font-semibold mb-1">Ceremony &amp; Reception</h3>
               <p class="text-white/80 text-xs">Full-day wedding package</p>
             </div>
           </div>
@@ -710,7 +797,7 @@
             <img src="assets/home4.jpg" alt="Engagement" class="service-img w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="font-display text-xl text-white font-bold mb-1">Engagement Parties</h3>
+              <h3 class="font-display text-xl text-white font-semibold mb-1">Engagement Parties</h3>
               <p class="text-white/80 text-xs">Intimate celebrations</p>
             </div>
           </div>
@@ -736,7 +823,7 @@
             <img src="assets/home5.jpg" alt="Anniversary" class="service-img w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="font-display text-xl text-white font-bold mb-1">Anniversary Galas</h3>
+              <h3 class="font-display text-xl text-white font-semibold mb-1">Anniversary Galas</h3>
               <p class="text-white/80 text-xs">Milestone celebrations</p>
             </div>
           </div>
@@ -775,7 +862,7 @@
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
         <div class="max-w-2xl">
           <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Birthday Parties</span>
-          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-3 font-bold">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-3 font-semibold">
             Parties That <span class="italic text-[#D4AF7A]">Spark Joy</span>
           </h2>
           <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">From sweet 16s to 80th bashes — we make every birthday unforgettable.</p>
@@ -793,40 +880,40 @@
             <span class="absolute top-3 left-3 bg-[#D4AF7A] text-[#2D1A28] text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Sweet 16</span>
           </div>
           <div class="p-5 flex flex-col flex-1">
-            <h3 class="font-display text-lg font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Sweet 16 Celebrations</h3>
+            <h3 class="font-display text-lg font-semibold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Sweet 16 Celebrations</h3>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">Glamorous setups with dance floors, DJ booths, and photo backdrops.</p>
           </div>
         </div>
 
         <div class="service-card card-venue overflow-hidden flex flex-col h-full">
           <div class="relative h-52 overflow-hidden flex-shrink-0">
-            <img src="assets/2.jpg" alt="Kids party" class="service-img w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=700&q=80" alt="Kids party" class="service-img w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-[#B8346B] text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Kids</span>
           </div>
           <div class="p-5 flex flex-col flex-1">
-            <h3 class="font-display text-lg font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Kids' Birthday Parties</h3>
+            <h3 class="font-display text-lg font-semibold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Kids' Birthday Parties</h3>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">Themed parties with entertainment, games, and kid-friendly catering.</p>
           </div>
         </div>
 
         <div class="service-card card-venue overflow-hidden flex flex-col h-full">
           <div class="relative h-52 overflow-hidden flex-shrink-0">
-            <img src="assets/1.jpg" alt="Milestone" class="service-img w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=700&q=80" alt="Milestone" class="service-img w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-[#6B2E5A] text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Milestone</span>
           </div>
           <div class="p-5 flex flex-col flex-1">
-            <h3 class="font-display text-lg font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Milestone Birthdays</h3>
+            <h3 class="font-display text-lg font-semibold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Milestone Birthdays</h3>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">Grand celebrations for 30th, 40th, 50th, and beyond — with elegance.</p>
           </div>
         </div>
 
         <div class="service-card card-venue overflow-hidden flex flex-col h-full">
           <div class="relative h-52 overflow-hidden flex-shrink-0">
-            <img src="assets/3.jpg" alt="Surprise" class="service-img w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80" alt="Surprise" class="service-img w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-[#2D1A28] text-[#D4AF7A] text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Surprise</span>
           </div>
           <div class="p-5 flex flex-col flex-1">
-            <h3 class="font-display text-lg font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Surprise Parties</h3>
+            <h3 class="font-display text-lg font-semibold text-[#2D1A28] dark:text-white mb-2 min-h-[3.25rem] flex items-center">Surprise Parties</h3>
             <p class="text-xs text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed">We handle the planning — you deliver the surprise of a lifetime.</p>
           </div>
         </div>
@@ -838,12 +925,12 @@
         <div class="absolute -top-10 -right-10 w-48 h-48 bg-white/10 blur-3xl rounded-full"></div>
         <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="text-center md:text-left">
-            <p class="text-[#F5E6D0] text-xs uppercase tracking-widest font-bold mb-2">All-Inclusive Birthday Package</p>
-            <h3 class="font-display text-2xl sm:text-3xl text-white font-bold mb-2">Everything You Need for the Perfect Party</h3>
+            <p class="text-[#F5E6D0] text-xs uppercase tracking-widest font-medium mb-2">All-Inclusive Birthday Package</p>
+            <h3 class="font-display text-2xl sm:text-3xl text-white font-semibold mb-2">Everything You Need for the Perfect Party</h3>
             <p class="text-white/80 text-sm">Venue · Décor · Catering · Music · Photography</p>
           </div>
           <div class="flex-shrink-0">
-            <p class="font-display text-3xl sm:text-4xl text-white font-bold text-center">$1,499<span class="text-sm font-normal text-white/70">/ event</span></p>
+            <p class="font-display text-3xl sm:text-4xl text-white font-medium text-center">$1,499<span class="text-sm font-normal text-white/70">/ event</span></p>
             <a href="packages.html" class="btn-gold px-6 py-3 rounded-full font-bold text-xs mt-3 inline-block">Book Now →</a>
           </div>
         </div>
@@ -860,7 +947,7 @@
     <div class="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Corporate Events</span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-bold">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-4 font-semibold">
           Elevate Your <span class="italic text-[#D4AF7A]">Business Events</span>
         </h2>
         <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base">
@@ -876,7 +963,7 @@
                style="background:linear-gradient(135deg,#4A1D3D,#6B2E5A);">
             <i class="fas fa-chalkboard-user text-[#D4AF7A] text-xl"></i>
           </div>
-          <h3 class="font-display text-xl font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center">Conferences &amp; Seminars</h3>
+          <h3 class="font-display text-xl font-semibold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center">Conferences &amp; Seminars</h3>
           <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-5 min-h-[3.5rem]">Fully equipped spaces with projection, sound, and breakout rooms for up to 300 delegates.</p>
           <ul class="space-y-2.5 text-sm mb-6 flex-grow">
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">4K projector &amp; screens</span></li>
@@ -885,7 +972,7 @@
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Catering &amp; refreshments</span></li>
           </ul>
           <div class="pt-4 border-t border-[#F0E4EC] dark:border-[#4A2540] mt-auto">
-            <p class="font-display text-lg font-bold text-[#D4AF7A] mb-3">From $1,200/day</p>
+            <p class="font-display text-lg font-medium text-[#D4AF7A] mb-3">From $1,200/day</p>
             <a href="packages.html" class="btn-outline-venue w-full text-center py-2.5 rounded-full font-bold text-xs inline-block">View Details →</a>
           </div>
         </div>
@@ -897,7 +984,7 @@
                style="background:linear-gradient(135deg,#D4AF7A,#6B2E5A);">
             <i class="fas fa-trophy text-white text-xl"></i>
           </div>
-          <h3 class="font-display text-xl font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center">Award Galas &amp; Dinners</h3>
+          <h3 class="font-display text-xl font-semibold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center">Award Galas &amp; Dinners</h3>
           <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-5 min-h-[3.5rem]">Elegant black-tie settings for award nights, charity galas, and corporate dinners.</p>
           <ul class="space-y-2.5 text-sm mb-6 flex-grow">
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Seats up to 400 guests</span></li>
@@ -906,7 +993,7 @@
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Professional lighting design</span></li>
           </ul>
           <div class="pt-4 border-t border-[#F0E4EC] dark:border-[#4A2540] mt-auto">
-            <p class="font-display text-lg font-bold text-[#D4AF7A] mb-3">From $3,800/event</p>
+            <p class="font-display text-lg font-medium text-[#D4AF7A] mb-3">From $3,800/event</p>
             <a href="packages.html" class="btn-gold w-full text-center py-2.5 rounded-full font-bold text-xs inline-block">Book This Package</a>
           </div>
         </div>
@@ -917,7 +1004,7 @@
                style="background:linear-gradient(135deg,#B8346B,#4A1D3D);">
             <i class="fas fa-rocket text-[#D4AF7A] text-xl"></i>
           </div>
-          <h3 class="font-display text-xl font-bold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center">Product Launches</h3>
+          <h3 class="font-display text-xl font-semibold text-[#2D1A28] dark:text-white mb-2 min-h-[3.5rem] flex items-center">Product Launches</h3>
           <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8] leading-relaxed mb-5 min-h-[3.5rem]">Modern, tech-forward spaces for press events, launches, and brand activations.</p>
           <ul class="space-y-2.5 text-sm mb-6 flex-grow">
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">LED wall &amp; AV setup</span></li>
@@ -926,7 +1013,7 @@
             <li class="flex items-start gap-2"><i class="fas fa-check text-[#D4AF7A] mt-1"></i><span class="text-[#7A4A6A] dark:text-[#C9A0B8]">Branding &amp; signage</span></li>
           </ul>
           <div class="pt-4 border-t border-[#F0E4EC] dark:border-[#4A2540] mt-auto">
-            <p class="font-display text-lg font-bold text-[#D4AF7A] mb-3">From $2,100/event</p>
+            <p class="font-display text-lg font-medium text-[#D4AF7A] mb-3">From $2,100/event</p>
             <a href="packages.html" class="btn-outline-venue w-full text-center py-2.5 rounded-full font-bold text-xs inline-block">View Details →</a>
           </div>
         </div>
@@ -936,19 +1023,19 @@
       <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-5">
         <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-wifi text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">High-Speed WiFi</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">High-Speed WiFi</p>
         </div>
         <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-video text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">Live Streaming</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">Live Streaming</p>
         </div>
         <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-car text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">Valet Parking</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">Valet Parking</p>
         </div>
         <div class="text-center p-5 rounded-2xl bg-white dark:bg-[#201018] border border-[#F0E4EC] dark:border-[#4A2540]">
           <i class="fas fa-headset text-[#D4AF7A] text-2xl mb-3"></i>
-          <p class="font-display font-bold text-sm text-[#2D1A28] dark:text-white">On-Site Support</p>
+          <p class="font-display font-medium text-sm text-[#2D1A28] dark:text-white">On-Site Support</p>
         </div>
       </div>
     </div>
@@ -969,7 +1056,7 @@
         <!-- Left content -->
         <div>
           <span class="text-[#D4AF7A] text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em]">Book Your Venue</span>
-          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-6 font-bold leading-tight">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#2D1A28] dark:text-white mt-3 mb-6 font-semibold leading-tight">
             Ready to Make Your <span class="italic text-[#D4AF7A]">Event Unforgettable?</span>
           </h2>
           <p class="text-[#7A4A6A] dark:text-[#C9A0B8] text-sm sm:text-base leading-relaxed mb-8">
@@ -1018,7 +1105,7 @@
         <!-- Right form card -->
         <div class="card-venue p-7 sm:p-9 shadow-2xl">
           <div class="mb-6">
-            <h3 class="font-display text-2xl font-bold text-[#2D1A28] dark:text-white mb-2">Request a Quote</h3>
+            <h3 class="font-display text-2xl font-semibold text-[#2D1A28] dark:text-white mb-2">Request a Quote</h3>
             <p class="text-sm text-[#7A4A6A] dark:text-[#C9A0B8]">Fill in your details and our team will respond within 24 hours.</p>
           </div>
 
@@ -1093,7 +1180,7 @@
       <div class="mb-12 pb-10 border-b footer-divider">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="text-center md:text-left">
-            <h3 class="font-display text-2xl sm:text-3xl font-bold footer-heading mb-1">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold footer-heading mb-1">
               Let's Plan Something <span class="italic text-[#D4AF7A]">Unforgettable</span>
             </h3>
             <p class="text-sm footer-text">Subscribe for seasonal offers, venue news, and event inspiration.</p>
@@ -1132,7 +1219,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Explore</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="halls.html" class="footer-link">Our Halls</a></li>
             <li><a href="packages.html" class="footer-link">Packages</a></li>
@@ -1142,7 +1229,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Events</h4>
           <ul class="space-y-2.5 text-sm">
             <li><a href="#" class="footer-link">Weddings</a></li>
             <li><a href="#" class="footer-link">Corporate</a></li>
@@ -1152,7 +1239,7 @@
         </div>
 
         <div>
-          <h4 class="font-display font-bold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
+          <h4 class="font-display font-semibold footer-heading text-base uppercase tracking-widest mb-4">Visit Us</h4>
           <ul class="space-y-3 text-sm">
             <li class="flex items-start gap-3 footer-text">
               <i class="fas fa-map-marker-alt mt-1 text-[#D4AF7A]"></i>
